@@ -1,0 +1,629 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClinSchd.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:ClinSchd.Infrastructure.AsyncValidatableModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.AsyncValidatableModel.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.AsyncValidatableModel.DoWorkAsync(ClinSchd.Infrastructure.AsyncValidatableModel.WorkMethod,ClinSchd.Infrastructure.AsyncValidatableModel.WorkCompletedMethod)">
+            <summary>
+            
+            </summary>
+            <param name="workMethod"></param>
+            <param name="workCompletedMethod"></param>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.AsyncValidatableModel.HasErrors">
+            <summary>
+            Can be used for Save command binding to prohibit Save
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.AsyncValidatableModel.Error">
+            <summary>
+            Error summary
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.AsyncValidatableModel.IsAsync">
+            <summary>
+            Should async calls be made or not.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.AsyncValidatableModel.Item(System.String)">
+            <summary>
+            IDataErrorInfo method for access to errors by the view.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.AsyncValidatableModel.WorkMethod">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.AsyncValidatableModel.WorkCompletedMethod">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.TreeHelper">
+            <summary>
+            Helper class used to traverse the Visual Tree.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.TreeHelper.FindAncestor(System.Windows.DependencyObject,System.Func{System.Windows.DependencyObject,System.Boolean})">
+            <summary>
+            Traverses the Visual Tree upwards looking for the ancestor that satisfies the <paramref name="predicate"/>.
+            </summary>
+            <param name="dependencyObject">The element for which the ancestor is being looked for.</param>
+            <param name="predicate">The predicate that evaluates if an element is the ancestor that is being looked for.</param>
+            <returns>
+            The ancestor element that matches the <paramref name="predicate"/> or <see langword="null"/>
+            if the ancestor was not found.
+            </returns>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.ExtensionMethods">
+            <summary>
+            Extension Methods for ADT.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.ExtensionMethods.ConvertToDateTime(System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            ConvertToDateTime
+            </summary>
+            <param name="value"></param>
+            <param name="isInternal"></param>
+            <param name="TruncateSeconds"></param>
+            <param name="FixZeroTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.ExtensionMethods.ConvertToExternalDateTimeFormat(System.DateTime,System.Boolean,System.Boolean)">
+            <summary>
+            ConvertToExternalDateTimeFormat
+            </summary>
+            <param name="inputDate"></param>
+            <param name="TruncateSeconds"></param>
+            <param name="FixZeroTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.ExtensionMethods.ConvertToInternalDateTimeFormat(System.DateTime,System.Boolean,System.Boolean)">
+            <summary>
+            ConvertToInternalDateTimeFormat
+            </summary>
+            <param name="inputDate"></param>
+            <param name="TruncateSeconds"></param>
+            <param name="FixZeroTime"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Behaviors.ReturnCommandBehavior">
+            <summary>
+            Defines a behavior that executes a <see cref="T:System.Windows.Input.ICommand"/> when the Return key is pressed inside a <see cref="T:System.Windows.Controls.TextBox"/>.
+            </summary>
+            <remarks>This behavior also supports setting a basic watermark on the <see cref="T:System.Windows.Controls.TextBox"/>.</remarks>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.ReturnCommandBehavior.#ctor(System.Windows.Controls.TextBox)">
+            <summary>
+            Initializes a new instance of <see cref="T:ClinSchd.Infrastructure.Behaviors.ReturnCommandBehavior"/>.
+            </summary>
+            <param name="textBox">The <see cref="T:System.Windows.Controls.TextBox"/> over which the <see cref="T:System.Windows.Input.ICommand"/> will work.</param>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.ReturnCommandBehavior.KeyPressed(System.Windows.Input.Key)">
+            <summary>
+            Executes the <see cref="T:System.Windows.Input.ICommand"/> when <paramref name="key"/> is <see cref="F:System.Windows.Input.Key.Enter"/>.
+            </summary>
+            <param name="key">The key pressed on the <see cref="T:System.Windows.Controls.TextBox"/>.</param>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Behaviors.ReturnCommandBehavior.DefaultTextAfterCommandExecution">
+            <summary>
+            Gets or Sets the text which is set as water mark on the <see cref="T:System.Windows.Controls.TextBox"/>.
+            </summary>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Behaviors.DialogActivationBehavior">
+            <summary>
+            Defines a behavior that creates a Dialog to display the active view of the target <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/>.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Behaviors.DialogActivationBehavior.BehaviorKey">
+            <summary>
+            The key of this behavior
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.DialogActivationBehavior.OnAttach">
+            <summary>
+            Performs the logic after the behavior has been attached.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.DialogActivationBehavior.CreateWindow">
+            <summary>
+            Override this method to create an instance of the <see cref="T:ClinSchd.Infrastructure.Behaviors.IWindow"/> that 
+            will be shown when a view is activated.
+            </summary>
+            <returns>
+            An instance of <see cref="T:ClinSchd.Infrastructure.Behaviors.IWindow"/> that will be shown when a 
+            view is activated on the target <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/>.
+            </returns>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Behaviors.DialogActivationBehavior.HostControl">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.DependencyObject"/> that the <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/> is attached to.
+            </summary>
+            <value>A <see cref="T:System.Windows.DependencyObject"/> that the <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/> is attached to.
+            This is usually a <see cref="T:System.Windows.FrameworkElement"/> that is part of the tree.</value>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.ReturnKey.CommandProperty">
+            <summary>
+            Command to execute on return key event.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.ReturnKey.DefaultTextAfterCommandExecutionProperty">
+            <summary>
+            Default text to set to the TextBox once the Command has been executed
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.ReturnKey.SetDefaultTextAfterCommandExecution(System.Windows.Controls.TextBox,System.String)">
+            <summary>
+            Sets the <see cref="T:System.String"/> to set to the TextBox once the Command has been executed.
+            </summary>
+            <param name="textBox">TextBox dependency object on which the default text will be set after the Command has been executed.</param>
+            <param name="defaultText">Default text to set.</param>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.ReturnKey.GetDefaultTextAfterCommandExecution(System.Windows.Controls.TextBox)">
+            <summary>
+            Retrieves the default text set to the <see cref="T:System.Windows.Controls.TextBox"/> after the Command has been executed.
+            </summary>
+            <param name="textBox">TextBox dependency object on which the default text will be set after the Command has been executed.</param>
+            <returns>Default text to set.</returns>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.ReturnKey.SetCommand(System.Windows.Controls.TextBox,System.Windows.Input.ICommand)">
+            <summary>
+            Sets the <see cref="T:System.Windows.Input.ICommand"/> to execute on the return key event.
+            </summary>
+            <param name="textBox">TextBox dependency object to attach command</param>
+            <param name="command">Command to attach</param>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.ReturnKey.GetCommand(System.Windows.Controls.TextBox)">
+            <summary>
+            Retrieves the <see cref="T:System.Windows.Input.ICommand"/> attached to the <see cref="T:System.Windows.Controls.TextBox"/>.
+            </summary>
+            <param name="textBox">TextBox containing the Command dependency property</param>
+            <returns>The value of the command attached</returns>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Interfaces.IHeaderInfoProvider`1">
+            <summary>
+            Provides an easy way to recognize a class that exposes a HeaderInfo that can be used to bind to a header from XAML.
+            </summary>
+            <typeparam name="T">The HeaderInfo type</typeparam>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Behaviors.RegionPopupBehaviors">
+            <summary>
+            Declares the Attached Properties and Behaviors for implementing Popup regions.
+            </summary>
+            <remarks>
+            Although the fastest way is to create a RegionAdapter for a Window and register it with the RegionAdapterMappings,
+            this would be conceptually incorrect because we want to create a new popup window everytime a view is added 
+            (instead of having a Window as a host control and replacing its contents everytime Views are added, as other adapters do).
+            This is why we have a different class for this behavior, instead of reusing the <see cref="F:Microsoft.Practices.Composite.Presentation.Regions.RegionManager.RegionNameProperty"/> attached property.
+            </remarks>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Behaviors.RegionPopupBehaviors.CreatePopupRegionWithNameProperty">
+            <summary>
+            The name of the Popup <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/>.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Behaviors.RegionPopupBehaviors.ContainerWindowStyleProperty">
+            <summary>
+            The <see cref="T:System.Windows.Style"/> to set to the Popup.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.RegionPopupBehaviors.GetCreatePopupRegionWithName(System.Windows.DependencyObject)">
+            <summary>
+            Gets the name of the Popup <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/>.
+            </summary>
+            <param name="owner">Owner of the Popup.</param>
+            <returns>The name of the Popup <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/>.</returns>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.RegionPopupBehaviors.SetCreatePopupRegionWithName(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Sets the name of the Popup <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/>.
+            </summary>
+            <param name="owner">Owner of the Popup.</param>
+            <param name="value">Name of the Popup <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/>.</param>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.RegionPopupBehaviors.GetContainerWindowStyle(System.Windows.DependencyObject)">
+            <summary>
+            Gets the <see cref="T:System.Windows.Style"/> for the Popup.
+            </summary>
+            <param name="owner">Owner of the Popup.</param>
+            <returns>The <see cref="T:System.Windows.Style"/> for the Popup.</returns>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.RegionPopupBehaviors.SetContainerWindowStyle(System.Windows.DependencyObject,System.Windows.Style)">
+            <summary>
+            Sets the <see cref="T:System.Windows.Style"/> for the Popup.
+            </summary>
+            <param name="owner">Owner of the Popup.</param>
+            <param name="style"><see cref="T:System.Windows.Style"/> for the Popup.</param>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.RegionPopupBehaviors.RegisterNewPopupRegion(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/> and registers it in the default <see cref="T:Microsoft.Practices.Composite.Regions.IRegionManager"/>
+            attaching to it a <see cref="T:ClinSchd.Infrastructure.Behaviors.DialogActivationBehavior"/> behavior.
+            </summary>
+            <param name="owner">The owner of the Popup.</param>
+            <param name="regionName">The name of the <see cref="T:Microsoft.Practices.Composite.Regions.IRegion"/>.</param>
+            <remarks>
+            This method would typically not be called directly, instead the behavior 
+            should be set through the Attached Property <see cref="F:ClinSchd.Infrastructure.Behaviors.RegionPopupBehaviors.CreatePopupRegionWithNameProperty"/>.
+            </remarks>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Behaviors.IWindow">
+            <summary>
+            Defines the interface for the Dialogs that are shown by <see cref="T:ClinSchd.Infrastructure.Behaviors.DialogActivationBehavior"/>.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.IWindow.Show">
+            <summary>
+            Opens the <see cref="T:ClinSchd.Infrastructure.Behaviors.IWindow"/>.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.IWindow.Close">
+            <summary>
+            Closes the <see cref="T:ClinSchd.Infrastructure.Behaviors.IWindow"/>.
+            </summary>
+        </member>
+        <member name="E:ClinSchd.Infrastructure.Behaviors.IWindow.Closed">
+            <summary>
+            Ocurrs when the <see cref="T:ClinSchd.Infrastructure.Behaviors.IWindow"/> is closed.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Behaviors.IWindow.Content">
+            <summary>
+            Gets or sets the content for the <see cref="T:ClinSchd.Infrastructure.Behaviors.IWindow"/>.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Behaviors.IWindow.Owner">
+            <summary>
+            Gets or sets the owner control of the <see cref="T:ClinSchd.Infrastructure.Behaviors.IWindow"/>.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Behaviors.IWindow.Style">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.Style"/> to apply to the <see cref="T:ClinSchd.Infrastructure.Behaviors.IWindow"/>.
+            </summary>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Controls.DateTimePicker">
+            <summary>
+            Interaction logic for DateTimePicker.xaml
+            </summary>
+            <remarks>
+            Composite Date and Time picker control with support for RPMS date formatting.
+            </remarks>
+            <summary>
+            DateTimePicker
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Controls.DateTimePicker.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeProperty">
+            <summary>
+            SelectedDateTime Dependency Property.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeFormattedProperty">
+            <summary>
+            SelectedDateTimeFormatted Dependency Property.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeFormattedInternalProperty">
+            <summary>
+            SelectedDateTimeFormattedInternal Dependency Property.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateProperty">
+            <summary>
+            SelectedDate Dependency Property.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedTimeProperty">
+            <summary>
+            SelectedTime Dependency Property.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.HideTimePickerProperty">
+            <summary>
+            HideTimePicker Dependency Property.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.TruncateSecondsProperty">
+            <summary>
+            TruncateSeconds Dependency Property.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.FixZeroTimeProperty">
+            <summary>
+            FixZeroTime Dependency Property.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Controls.DateTimePicker.OnSelectedDateTimeChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Nullable{System.DateTime}})">
+            <summary>
+            Raises the ValueChanged event.
+            </summary>
+            <param name="args">Arguments associated with the ValueChanged event.</param>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Controls.DateTimePicker.OnSelectedDateChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Nullable{System.DateTime}})">
+            <summary>
+            Raises the ValueChanged event.
+            </summary>
+            <param name="args">Arguments associated with the ValueChanged event.</param>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Controls.DateTimePicker.OnSelectedTimeChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Nullable{System.TimeSpan}})">
+            <summary>
+            Raises the ValueChanged event.
+            </summary>
+            <param name="args">Arguments associated with the ValueChanged event.</param>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Controls.DateTimePicker.OnSelectedDateTimeFormattedChanged(System.Windows.RoutedPropertyChangedEventArgs{System.String})">
+            <summary>
+            Raises the ValueChanged event.
+            </summary>
+            <param name="args">Arguments associated with the ValueChanged event.</param>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Controls.DateTimePicker.OnSelectedDateTimeFormattedInternalChanged(System.Windows.RoutedPropertyChangedEventArgs{System.String})">
+            <summary>
+            Raises the ValueChanged event.
+            </summary>
+            <param name="args">Arguments associated with the ValueChanged event.</param>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeChangedEvent">
+            <summary>
+            Identifies the ValueChanged routed event.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateChangedEvent">
+            <summary>
+            Identifies the ValueChanged routed event.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedTimeChangedEvent">
+            <summary>
+            Identifies the ValueChanged routed event.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeFormattedChangedEvent">
+            <summary>
+            Identifies the ValueChanged routed event.
+            </summary>
+        </member>
+        <member name="F:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeFormattedInternalChangedEvent">
+            <summary>
+            Identifies the ValueChanged routed event.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Controls.DateTimePicker.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTime">
+            <summary>
+            DateTime currently selected by the picker controls.
+            Setting this property will initialize the controls with the provided date and time.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeFormatted">
+            <summary>
+            RPMS-formatted DateTime currently selected by the picker controls.
+            Retrieves or sets the selected DateTime using an RPMS-formatted string representation of the date and time.
+            (MON DD YYYY@HH:MM:SS)
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeFormattedInternal">
+            <summary>
+            RPMS-formatted (internal) DateTime currently selected by the picker controls.
+            Retrieves or sets the selected DateTime using an RPMS-formatted (internal) string representation of the date and time.
+            (YYYMMDD.HHMMSS)
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDate">
+            <summary>
+            The DateTime (date component only) currently selected by the picker controls.
+            Preserved for backwards compatibility with existing RadDatePicker declarations.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedTime">
+            <summary>
+            The TimeSpan currently selected by the picker controls.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Controls.DateTimePicker.HideTimePicker">
+            <summary>
+            Hide or show the Time Picker and "@" sign divider.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Controls.DateTimePicker.TruncateSeconds">
+            <summary>
+            Truncate or include seconds in formatted date strings.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Controls.DateTimePicker.FixZeroTime">
+            <summary>
+            Change 00:00 times to 00:01 in formatted date strings.
+            </summary>
+        </member>
+        <member name="E:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeChanged">
+            <summary>
+            Occurs when the Value property changes.
+            </summary>
+        </member>
+        <member name="E:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateChanged">
+            <summary>
+            Occurs when the Value property changes.
+            </summary>
+        </member>
+        <member name="E:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedTimeChanged">
+            <summary>
+            Occurs when the Value property changes.
+            </summary>
+        </member>
+        <member name="E:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeFormattedChanged">
+            <summary>
+            Occurs when the Value property changes.
+            </summary>
+        </member>
+        <member name="E:ClinSchd.Infrastructure.Controls.DateTimePicker.SelectedDateTimeFormattedInternalChanged">
+            <summary>
+            Occurs when the Value property changes.
+            </summary>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Behaviors.WindowDialogActivationBehavior">
+            <summary>
+            Specifies the <see cref="T:ClinSchd.Infrastructure.Behaviors.DialogActivationBehavior"/> class for using the behavior on WPF.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.WindowDialogActivationBehavior.CreateWindow">
+            <summary>
+            Creates a wrapper for the WPF <see cref="T:System.Windows.Window"/>.
+            </summary>
+            <returns>Instance of the <see cref="T:System.Windows.Window"/> wrapper.</returns>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Properties.Resources.CannotConvertFromTypeToEnum">
+            <summary>
+              Looks up a localized string similar to Cannot convert from type {0} to enum type {1}.  The source value must be a string type..
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Properties.Resources.CannotConvertParameterToIntegerException">
+            <summary>
+              Looks up a localized string similar to The parameter should be convertible to an integer..
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Properties.Resources.InvalidAttachedRegion">
+            <summary>
+              Looks up a localized string similar to Behavior cannot be attached to a null Region..
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Properties.Resources.InvalidViewOnActivateViewOnFocusBehavior">
+            <summary>
+              Looks up a localized string similar to Cannot apply ActivateViewOnFocusBehavior to a Region that contains Views that are not UIElement..
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Properties.Resources.SelectorExtensionCannotResolveMember">
+            <summary>
+              Looks up a localized string similar to The type {0} does not have a public property named &apos;{1}&apos;. The current implementation of &apos;{2}&apos; does not allow specifying a nested path or a member that is not a property..
+            </summary>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Models.RPMSClinic">
+            <summary>
+            RPMS Clinic information
+            </summary>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Models.CustomAppointment">
+            <summary>
+            CustomAppointment
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Models.CustomAppointment.#ctor">
+            <summary>
+            CustomAppointment
+            </summary>
+        </member>
+        <member name="T:ClinSchd.Infrastructure.Behaviors.WindowWrapper">
+            <summary>
+            Defines a wrapper for the <see cref="T:System.Windows.Window"/> class that implements the <see cref="T:ClinSchd.Infrastructure.Behaviors.IWindow"/> interface.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.WindowWrapper.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:ClinSchd.Infrastructure.Behaviors.WindowWrapper"/>.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.WindowWrapper.Show">
+            <summary>
+            Opens the <see cref="T:System.Windows.Window"/>.
+            </summary>
+        </member>
+        <member name="M:ClinSchd.Infrastructure.Behaviors.WindowWrapper.Close">
+            <summary>
+            Closes the <see cref="T:System.Windows.Window"/>.
+            </summary>
+        </member>
+        <member name="E:ClinSchd.Infrastructure.Behaviors.WindowWrapper.Closed">
+            <summary>
+            Ocurrs when the <see cref="T:System.Windows.Window"/> is closed.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Behaviors.WindowWrapper.Content">
+            <summary>
+            Gets or Sets the content for the <see cref="T:System.Windows.Window"/>.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Behaviors.WindowWrapper.Owner">
+            <summary>
+            Gets or Sets the <see cref="P:System.Windows.Window.Owner"/> control of the <see cref="T:System.Windows.Window"/>.
+            </summary>
+        </member>
+        <member name="P:ClinSchd.Infrastructure.Behaviors.WindowWrapper.Style">
+            <summary>
+            Gets or Sets the <see cref="P:System.Windows.FrameworkElement.Style"/> to apply to the <see cref="T:System.Windows.Window"/>.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

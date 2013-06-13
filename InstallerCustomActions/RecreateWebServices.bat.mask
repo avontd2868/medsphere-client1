@@ -1,0 +1,1 @@
+﻿CreateWebServices PIMSOVID.war PIMSOVID context.xml.mask "{NAMESPACE}" "{SERVER}" "{PORT}" "{ACCESS_CODE}" "{VERIFY_CODE}" 1

@@ -1,0 +1,145 @@
+﻿<Window x:Name="paneManagementAddResource" Title="{Binding PaneTitle}"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:infModels="clr-namespace:ClinSchd.Infrastructure.Models;assembly=ClinSchd.Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:input="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:Converters="clr-namespace:ClinSchd.Infrastructure.Converters;assembly=ClinSchd.Infrastructure"
+    xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+    xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:gridView="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:navigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"	xmlns:cal="clr-namespace:Microsoft.Practices.Composite.Presentation.Commands;assembly=Microsoft.Practices.Composite.Presentation"
+    xmlns:data="clr-namespace:Telerik.Windows.Data;assembly=Telerik.Windows.Data"
+	x:Class="ClinSchd.Modules.Management.AddResource.AddResourceView"
+    Height="574" Width="480"
+    Icon="/ClinSchd;component/Resources/ClinSchd.ico"
+	>
+
+    <Grid Background="BlanchedAlmond">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="154"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="6,0,6,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="60" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,3" >Clinic Name:</TextBlock>
+            <TextBox HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Name="ClinicName" VerticalAlignment="Bottom" 
+                             Text="{Binding SelectedClinic.HOSPITAL_LOCATION,Mode=TwoWay}" Margin="6,0,0,3" IsEnabled="False"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,3" >Inactive:</TextBlock>
+            <CheckBox Margin="6,0,0,6" Name="Inactive" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1" IsChecked="{Binding IsInactive, Mode=TwoWay}" ></CheckBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,3" >Time Scale (min):</TextBlock>
+            <input:RadComboBox Grid.Row="1" Grid.Column="3" Name="TimeScale" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" 
+                     DisplayMemberPath="Name" SelectedValuePath="Value"
+                     ItemsSource="{Binding TimeScale}" SelectedValue="{Binding TimeScaleValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="6,0,0,3"/>
+        </Grid>
+
+        <GroupBox Grid.Row="1" Margin="6,0,6,6">
+            <GroupBox.Header>
+                <TextBlock Text="Clinics Link" />
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,0" >Clinics:</TextBlock>
+                <input:RadComboBox Grid.Row="0" Grid.Column="1" Name="RPMSClinicName" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" 
+                     DisplayMemberPath="HOSPITAL_LOCATION" SelectedValuePath="HOSPITAL_LOCATION_ID" SelectedIndex="{Binding ProviderIEN}" Grid.ColumnSpan="3" IsEnabled="{Binding IsClinicEnabled}"
+                     ItemsSource="{Binding ClinicList}" SelectedValue="{Binding HospitalLocationID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="3,0,3,0"
+                     SelectionChanged="RPMSClinicName_SelectionChanged"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,0" >Create Visit at Check-in?</TextBlock>
+                <TextBox HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Name="CreateVisit" VerticalAlignment="Bottom" 
+                             Text="{Binding SelectedClinic.CREATEVISIT,Mode=TwoWay}" Margin="3,3,3,0" IsEnabled="False"/>
+                <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,0" >Overbook Limit:</TextBlock>
+                <TextBox HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="3" Name="OverbookLimit" VerticalAlignment="Bottom" 
+                             Text="{Binding SelectedClinic.OVERBOOK,Mode=TwoWay}" Margin="3,3,0,0" IsEnabled="False"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,0" >Visit Service Category:</TextBlock>
+                <TextBox HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Name="ServiceCategory" VerticalAlignment="Bottom" 
+                             Text="" Margin="3,3,3,0" IsEnabled="False"/>
+                <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,0" >Provider:</TextBlock>
+                <TextBox HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="3" Name="Provider" VerticalAlignment="Bottom" 
+                             Text="{Binding SelectedClinic.PROVIDER,Mode=TwoWay}" Margin="3,3,0,0" IsEnabled="False"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,0" >Inactive Time:</TextBlock>
+                <TextBox HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Name="InactiveTime" VerticalAlignment="Bottom" 
+                             Text="{Binding SelectedClinic.INACTIVE,Mode=TwoWay}" Margin="3,3,3,0" IsEnabled="False"/>
+                <TextBlock Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,0" >Reactive Time:</TextBlock>
+                <TextBox HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="3" Name="ReactiveTime" VerticalAlignment="Bottom"
+                             Text="{Binding SelectedClinic.RNACTIVE,Mode=TwoWay}" Margin="3,3,0,0" IsEnabled="False"/>
+      
+                <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,0" >Clinic Code:</TextBlock>
+                <TextBox HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Name="ClinicCode" VerticalAlignment="Bottom" 
+                             Text="{Binding SelectedClinic.CODE,Mode=TwoWay}" Margin="3,3,0,0" IsEnabled="False"/>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2" Margin="6,0,6,0">
+            <GroupBox.Header>
+                <TextBlock Text="Letters" />
+            </GroupBox.Header>
+
+            <Grid Background="BlanchedAlmond">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="3,3,0,3">Reminder Letter:</TextBlock>
+                <TextBox Grid.Row="1" Name="ReminderLetter" Text="{Binding SchdResource.LETTER_TEXT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="3,3,0,3" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="3,3,0,3">Rebook Letter:</TextBlock>
+                <TextBox HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="0" Name="RebookLetter" VerticalAlignment="Stretch"
+                             Text="{Binding SchdResource.NO_SHOW_LETTER, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="3,3,0,6" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+
+
+                <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="3,3,0,3">Cancellation Letter:</TextBlock>
+                <TextBox HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="0" Name="CancellationLetter" VerticalAlignment="Stretch" 
+                             Text="{Binding SchdResource.CLINIC_CANCELLATION_LETTER, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="3,3,0,6" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+
+                <TextBlock Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="3,3,0,3" TextWrapping="Wrap" >Enter the text which will appear on the letters sent to patients with appointments in this clinic. Use CTRL+Enter to start a new line.</TextBlock>
+
+            </Grid>
+        </GroupBox>
+        <presentation:RadButton Grid.Row="3" Name="CancelButton" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,1,12,3" 
+                                VerticalAlignment="Bottom" Click="CancelButton_Click">Cancel</presentation:RadButton>
+        <presentation:RadButton Grid.Row="3" Name="OkButton" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,1,100,3" 
+                                VerticalAlignment="Bottom" Click="OkButton_Click">OK</presentation:RadButton>
+
+    </Grid>
+
+</Window>

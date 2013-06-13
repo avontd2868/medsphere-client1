@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Options>
+  <AdmissionTypes xmlns="">
+    <AdmissionType>
+      <Name>1 – EMERGENCY</Name>
+    </AdmissionType>
+    <AdmissionType>
+      <Name>2 – URGENT</Name>
+    </AdmissionType>
+    <AdmissionType>
+      <Name>3 – ELECTIVE</Name>
+    </AdmissionType>
+    <AdmissionType>
+      <Name>4 – NEWBORN</Name>
+    </AdmissionType>
+  </AdmissionTypes>
+  <AdmissionSources xmlns="">
+    <AdmissionSource>
+      <Name>1 – PHYSICIAN REFERRAL</Name>
+    </AdmissionSource>
+    <AdmissionSource>
+      <Name>2 – CLINIC REFERRAL</Name>
+    </AdmissionSource>
+    <AdmissionSource>
+      <Name>3 – HMO REFERRAL</Name>
+    </AdmissionSource>
+    <AdmissionSource>
+      <Name>4 – TRANSFER FROM HOSPITAL</Name>
+    </AdmissionSource>
+    <AdmissionSource>
+      <Name>5 – TRANSFER FROM SNF</Name>
+    </AdmissionSource>
+    <AdmissionSource>
+      <Name>6 – TRANSFER FROM ANOTHER FACILITY</Name>
+    </AdmissionSource>
+    <AdmissionSource>
+      <Name>7 – EMERGENCY ROOM</Name>
+    </AdmissionSource>
+    <AdmissionSource>
+      <Name>8 – COURT/LAW ENFORCEMENT</Name>
+    </AdmissionSource>
+    <AdmissionSource>
+      <Name>9 – INFORMATION NOT AVAILABLE</Name>
+    </AdmissionSource>
+    <AdmissionSource>
+      <Name>A – TRANSFER FROM RURAL HOSPITAL</Name>
+    </AdmissionSource>
+  </AdmissionSources>
+  <TypeOfAdmissions xmlns="">
+    <TypeOfAdmission>
+      <Name>1 - DIRECT ADMISSION ACTIVE</Name>
+    </TypeOfAdmission>
+    <TypeOfAdmission>
+      <Name>2 - TRANS-NON IHS HOSPITAL ADMISSION ACTIVE</Name>
+    </TypeOfAdmission>
+    <TypeOfAdmission>
+      <Name>3 - TRANS-IHS HOSPITAL ADMISSION ACTIVE</Name>
+    </TypeOfAdmission>
+    <TypeOfAdmission>
+      <Name>4 - REFERRED FROM IHS CLINIC ADMISSION ACTIVE</Name>
+    </TypeOfAdmission>
+    <TypeOfAdmission>
+      <Name>5 - OTHER ADMISSION ACTIVE</Name>
+    </TypeOfAdmission>
+  </TypeOfAdmissions>
+  <WardLocations xmlns="">
+    <WardLocation>
+      <Name>PEDS</Name>
+    </WardLocation>
+  </WardLocations>
+  <RoomBeds xmlns="">
+    <RoomBed>
+      <Name>200-1</Name>
+    </RoomBed>
+  </RoomBeds>
+  <FacilityTreatingSpecialities xmlns="">
+    <FacilityTreatingSpeciality>
+      <Name>ORTHOPEDICS</Name>
+    </FacilityTreatingSpeciality>
+    <FacilityTreatingSpeciality>
+      <Name>SURGERY</Name>
+    </FacilityTreatingSpeciality>
+  </FacilityTreatingSpecialities>
+  <ReferringProviders xmlns="">
+    <ReferringProvider>
+      <Name>ADAMS, ADAM</Name>
+    </ReferringProvider>
+    <ReferringProvider>
+      <Name>DOCTOR, KATHRYN</Name>
+    </ReferringProvider>
+  </ReferringProviders>
+  <AdmittingProviders xmlns="">
+    <AdmittingProvider>
+      <Name>DOCTOR,KARYN</Name>
+    </AdmittingProvider>
+  </AdmittingProviders>
+  <AttendingPhyicians xmlns="">
+    <AttendingPhyician>
+      <Name>PROVIDER,JADE</Name>
+    </AttendingPhyician>
+  </AttendingPhyicians>
+  <Conditions xmlns="">
+    <Condition>
+      <Name>S - Seriously Ill</Name>
+    </Condition>
+    <Condition>
+      <Name>D - Do Not Resuscitate</Name>
+    </Condition>
+    <Condition>
+      <Name>B - SI and DNR</Name>
+    </Condition>
+  </Conditions>
+  <TypeOfDischarges>
+    <TypeOfDischarge>
+      <Name>1 - REGULAR DISCHARGE DISCHARGE ACTIVE</Name>
+    </TypeOfDischarge>
+    <TypeOfDischarge>
+      <Name>2 - TRANSFERRED DISCHARGE ACTIVE</Name>
+    </TypeOfDischarge>
+    <TypeOfDischarge>
+      <Name>3 - DEATH W/I 48 HRS W AUTOPSY DISCHARGE ACTIVE</Name>
+    </TypeOfDischarge>
+    <TypeOfDischarge>
+      <Name>4 - DEATH W/I 48 HRS W/O AUTOPSY DISCHARGE ACTIVE</Name>
+    </TypeOfDischarge>
+    <TypeOfDischarge>
+      <Name>5 - DEATH AFTER 48 HRS W AUTOPSY DISCHARGE ACTIVE</Name>
+    </TypeOfDischarge>
+    <TypeOfDischarge>
+      <Name>7 - DEATH AFTER 48 HRS W/O AUTOPSY DISCHARGE ACTIVE</Name>
+    </TypeOfDischarge>
+    <TypeOfDischarge>
+      <Name>8 - IRREGULAR (AMA) DISCHARGE ACTIVE</Name>
+    </TypeOfDischarge>
+  </TypeOfDischarges>
+  <Procedures>
+    <Procedure>
+      <Name>ACL REPAIR</Name>
+    </Procedure>
+  </Procedures>
+  <VisitTypes>
+    <VisitType>
+      <Name>Admission</Name>
+    </VisitType>
+    <VisitType>
+      <Name>Day Surgery</Name>
+    </VisitType>
+    <VisitType>
+      <Name>Outpatient Visit</Name>
+    </VisitType>
+  </VisitTypes>
+  <AuthorizingProviders>
+    <AuthorizingProvider>
+      <Name>DOCTOR, KATHRYN</Name>
+    </AuthorizingProvider>
+  </AuthorizingProviders>
+  <CaseManagers>
+    <CaseManager>
+      <Name>MANAGER,HEATHER E</Name>
+    </CaseManager>
+  </CaseManagers>
+  <TreatingSpecialitys xmlns="">
+    <TreatingSpeciality>
+      <Name>ORTHOPEDICS</Name>
+    </TreatingSpeciality>
+    <TreatingSpeciality>
+      <Name>SURGERY</Name>
+    </TreatingSpeciality>
+  </TreatingSpecialitys>
+  <TransferTypes xmlns="">
+    <TransferType>
+      <Name>Ward Transfer</Name>
+    </TransferType>
+    <TransferType>
+      <Name>Treating Speciality Transfer</Name>
+    </TransferType>
+    <TransferType>
+      <Name>Bed Switch</Name>
+    </TransferType>
+    <TransferType>
+      <Name>Provider Change</Name>
+    </TransferType>
+  </TransferTypes>
+  <Wards xmlns="">
+    <Ward>
+      <Name>GMS</Name>
+    </Ward>
+  </Wards>
+</Options>

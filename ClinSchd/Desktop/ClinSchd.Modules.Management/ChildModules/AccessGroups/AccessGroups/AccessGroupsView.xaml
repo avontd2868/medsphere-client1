@@ -1,0 +1,167 @@
+﻿<presentation:RadPane x:Name="paneManagementAccessGroups" Title="Access Groups"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:infModels="clr-namespace:ClinSchd.Infrastructure.Models;assembly=ClinSchd.Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:input="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+    xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:gridView="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:navigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"	
+    xmlns:cal="clr-namespace:Microsoft.Practices.Composite.Presentation.Commands;assembly=Microsoft.Practices.Composite.Presentation"
+    xmlns:data="clr-namespace:Telerik.Windows.Data;assembly=Telerik.Windows.Data"
+    xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    x:Class="ClinSchd.Modules.Management.AccessGroups.AccessGroupsView"
+    CanUserClose="False"
+    CanDockInDocumentHost="False"
+    CanUserPin="False"
+    CanFloat="False"
+    >
+    <presentation:RadPane.Content>
+
+        <Grid Background="BlanchedAlmond">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="110"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="6,6,6,6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="0">Access Types:</Label>
+                <ListBox Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0" 
+                         ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         DisplayMemberPath="NAME" SelectedValuePath="BSDX_ACCESS_TYPE_IEN" ItemsSource="{Binding AccessTypeList}" 
+                         SelectedValue="{Binding AccessTypeIEN, Mode=TwoWay}"></ListBox>
+                <presentation:RadButton HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Width="90" Height="25" Margin="0,3,0,3" 
+                                        VerticalAlignment="Bottom" IsDefault="True" Name="NewType"
+                                        Click="NewType_Click">New Type</presentation:RadButton>
+                <presentation:RadButton HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" Width="90" Height="25" Margin="106,3,0,3" 
+                                        VerticalAlignment="Bottom" Name="EditType"
+                                        Click="EditType_Click">Edit Type</presentation:RadButton>
+
+                <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" >
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,45,6,3" 
+                                            VerticalAlignment="Top" IsDefault="True" Name="NewGroup"
+                                            Click="NewGroup_Click">New Group</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,75,6,3" 
+                                            VerticalAlignment="Top" Name="EditGroup"
+                                            Click="EditGroup_Click">Edit Group</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,105,6,3" 
+                                            VerticalAlignment="Top" Name="RemoveGroup"
+                                            Click="RemoveGroup_Click">Remove Group</presentation:RadButton>
+
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,3,6,93" 
+                                            VerticalAlignment="Bottom" Name="AddType" Click="AddType_Click">Add Type</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,3,6,63" 
+                                            VerticalAlignment="Bottom" Name="AddAll" Click="AddAll_Click">Add All</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,3,6,33" 
+                                            VerticalAlignment="Bottom" Name="RemoveType" Click="RemoveType_Click">Remove Type</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,3,6,3" 
+                                            VerticalAlignment="Bottom" Name="RemoveAll" Click="RemoveAll_Click">Remove All</presentation:RadButton>
+                </Grid>
+
+                <Label Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="2">Access Groups:</Label>
+                <Grid Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0" Name="AccessGroupListBox"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                         DisplayMemberPath="Name" SelectedValuePath="Value" ItemsSource="{Binding AccessGroupList}"  SelectionChanged="AccessGroupListBox_SelectionChanged"
+                         SelectedValue="{Binding AccessGroupIEN, Mode=TwoWay}"></ListBox>
+                    <Label Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0">Access Type List:</Label>
+                    <ListBox Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="0" 
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         DisplayMemberPath="ACCESS_TYPE" SelectedValuePath="ACCESS_TYPE_ID" ItemsSource="{Binding SchdGroupedAccessTypes}" 
+                         SelectedValue="{Binding GroupedAccessTypeIEN, Mode=TwoWay}"></ListBox>
+                </Grid>
+            </Grid>
+            <GroupBox Grid.Row="1" Margin="6,6,6,10">
+                <GroupBox.Header>
+                    <TextBlock Text="Description" />
+                </GroupBox.Header>
+
+                <TextBlock Text="Use the resources panel to define the set of clinical entities available for scheduling at this facility.  Resources may include care providers (for example, dentists and physicians) or other kinds of scheduled services, facilities or equipment.  Click the small + sign next to the resource name to manage the users who can schedule this resource." TextWrapping="Wrap"/>
+            </GroupBox>
+
+        </Grid>
+
+        <!--<Grid Background="BlanchedAlmond">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="480"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <grid:RadGridView Grid.Row="0" x:Name="AccessGroupsManagementGrid" Background="Beige" 
+                              AutoGenerateColumns="False" IsReadOnly="False"
+				              CanUserFreezeColumns="False" CanUserInsertRows="False" CanUserDeleteRows="False" 
+				              ItemsSource="{Binding AccessGroupList}" SelectedItem="{Binding SelectedGroup}">
+                <grid:RadGridView.Columns>
+                    <grid:GridViewToggleRowDetailsColumn />
+                    <grid:GridViewDataColumn Header="Access Group ID" DataMemberBinding="{Binding Value}" Width="auto" />
+                    <grid:GridViewDataColumn Header="Access Group Name" DataMemberBinding="{Binding Name}" Width="*" />
+                </grid:RadGridView.Columns>
+                <grid:RadGridView.RowDetailsTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="900" Margin="0" VerticalAlignment="Center" controls:StyleManager.Theme="Office_Black">
+                            <Border BorderBrush="#FF848484" BorderThickness="0,1,0,0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <grid:RadGridView Grid.Row="0" ItemsSource="{Binding}" Height="300" RowIndicatorVisibility="Collapsed" AutoGenerateColumns="False" 
+															  CanUserFreezeColumns="False" BorderThickness="0" CanUserResizeColumns="False"
+															  ShowGroupPanel="False" 
+															  Margin="0" 
+															  Width="900">
+
+                                        <grid:RadGridView.Resources>
+                                            <Style x:Key="GridViewToggleButtonColumnStyle" TargetType="gridView:GridViewCell">
+                                                <Setter Property="Padding" Value="0,0,0,0" />
+                                            </Style>
+                                        </grid:RadGridView.Resources>
+                                        <grid:RadGridView.Columns>
+                                            <grid:GridViewToggleRowDetailsColumn CellStyle="{StaticResource GridViewToggleButtonColumnStyle}" />
+                                            <grid:GridViewDataColumn Header="Access Type" DataMemberBinding="{Binding ResourceID.Item(0)}" />
+                                        </grid:RadGridView.Columns>
+                                    </grid:RadGridView>
+                                    <presentation:RadButton Grid.Row="2" HorizontalAlignment="Right" Width="100" Height="25" Margin="0,0,120,12" VerticalAlignment="Bottom" IsDefault="True">Add Types</presentation:RadButton>
+                                    <presentation:RadButton Grid.Row="2" HorizontalAlignment="Right" Width="100" Height="25" Margin="0,0,12,12" VerticalAlignment="Bottom" >Change Types</presentation:RadButton>
+
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </grid:RadGridView.RowDetailsTemplate>
+
+            </grid:RadGridView>
+            <GroupBox Grid.Row="2">
+                <GroupBox.Header>
+                    <TextBlock Text="Description" />
+                </GroupBox.Header>
+
+                <TextBlock Text="Use this panel to organize Access Types into convenient groups.  Access Groups are useful when selecting the Access Type (Walk-in, Same-Day, etc) to use when setting up the schedule for a resource.  Access Type Groups will be visible to all scheduling users." TextWrapping="Wrap"/>
+            </GroupBox>
+            <presentation:RadButton Grid.Row="4" HorizontalAlignment="Left" Width="100" Height="25" Margin="12,0,0,12" VerticalAlignment="Bottom" IsDefault="True">Add Group</presentation:RadButton>
+            <presentation:RadButton Grid.Row="4" HorizontalAlignment="Left" Width="100" Height="25" Margin="120,0,0,12" VerticalAlignment="Bottom" >Change Group</presentation:RadButton>
+            <presentation:RadButton Grid.Row="4" HorizontalAlignment="Left" Width="100" Height="25" Margin="230,0,0,12" VerticalAlignment="Bottom" >Remove Group</presentation:RadButton>
+        </Grid>-->
+    </presentation:RadPane.Content>
+</presentation:RadPane>

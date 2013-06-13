@@ -1,0 +1,71 @@
+﻿<Window x:Class="ClinSchd.Modules.CheckIn.CheckIn.CheckInView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+	xmlns:grid="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:inf="clr-namespace:ClinSchd.Infrastructure;assembly=ClinSchd.Infrastructure"
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:adtcontrols="clr-namespace:ClinSchd.Infrastructure.Controls;assembly=ClinSchd.Infrastructure"
+    xmlns:Telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    Title="Appointment Check In" Height="340" Width="480" 
+    Icon="/ClinSchd;component/Resources/ClinSchd.ico"
+>
+
+    <Grid ShowGridLines="False" Background="BlanchedAlmond" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190" />
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,12,0,6">Patient Name:</TextBlock>
+            <TextBox HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="2" Name="PatientName" VerticalAlignment="Bottom" IsEnabled="False"
+                     Text="{Binding PatientName,Mode=TwoWay}" Margin="3,3,0,3"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,12,0,6" >CheckIn Time:</TextBlock>
+            <adtcontrols:DateTimePicker Name="CheckInTime" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" VerticalContentAlignment="Bottom" 
+                     Margin="3,12,12,12" SelectedDateTime="{Binding CheckIn.CheckInDateTime, Mode=TwoWay}" />
+            
+            <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,3,0,6">Visit Provider:</TextBlock>
+            <Telerik:RadComboBox Grid.Row="2" Grid.Column="2" Name="Provider" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" 
+                     DisplayMemberPath="Name" SelectedValuePath="IEN" SelectedIndex="{Binding ProviderIEN}"
+                     ItemsSource="{Binding Providers}" SelectedValue="{Binding CheckIn.ProviderIEN, Mode=TwoWay}" Margin="3,12,0,6"/>
+
+            <Grid Grid.Row="2" Grid.Column="4" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <CheckBox Grid.Row="0" Name="RoutingSlipCheckbox" Margin="3,13,0,6" HorizontalAlignment="Left" Width="Auto" VerticalAlignment="Top" IsChecked="{Binding CheckIn.PrintRouteSlip, Mode=TwoWay}">Print Routing Slip</CheckBox>
+                <CheckBox Grid.Row="1" Name="WellnessCheckbox" Margin="3,3,0,6" HorizontalAlignment="Left" Width="Auto" VerticalAlignment="Top" IsChecked="{Binding CheckIn.PrintWellnessHandout, Mode=TwoWay}" >Print Wellness Handout</CheckBox>
+                <CheckBox Grid.Row="2" Name="SummaryCheckbox" Margin="3,3,0,6" HorizontalAlignment="Left" Width="Auto" VerticalAlignment="Top" IsChecked="{Binding IsSummaryReportChecked}" Unchecked="SummaryCheckbox_Unchecked" Checked="SummaryCheckbox_Checked">Print PCC Health Summary</CheckBox>
+                <Telerik:RadComboBox Grid.Row="3" Name="SummaryReport" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="3,0,12,6" Visibility="Hidden"
+                                     DisplayMemberPath="Name" SelectedValuePath="Value" SelectedIndex="{Binding HealthSummaryLetterIEN}" 
+                                     ItemsSource="{Binding SummaryReport}"  SelectedValue="{Binding CheckIn.HealthSummaryLetterIEN, Mode=TwoWay}"/>
+            </Grid>
+        </Grid>
+
+        <GroupBox Header="Description" Name="Description" Grid.Row="1" >
+            <TextBlock HorizontalAlignment="Stretch" Name="label2" VerticalAlignment="Bottom" TextWrapping="Wrap">Use this panel to check in an appointment. A PCC visit will automatically be created for this patient at the check in date and time if the clinic is set up to create a visit at checkin.  A patient may only be checked-in once.</TextBlock>
+        </GroupBox>
+        <presentation:RadButton Margin="0,6,90,6" Click="Button_OK_Click" IsDefault="False" Grid.Row="2" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70">OK</presentation:RadButton>
+        <presentation:RadButton Margin="0,6,12,6"  Click="Button_Cancel_Click" IsDefault="False" Grid.Row="2" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70" >Cancel</presentation:RadButton>
+    </Grid>
+</Window>

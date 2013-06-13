@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ReportsConfiguration>
+  <Reports>
+    <Report ID="PatientCancellationLetterFormatted" DisplayName="Patient Cancellation Letter Formatted" RPC="BSDX RESOURCE LETTER FORMATTED">
+      <RequiredParams>
+        <ParameterName>ClinicID</ParameterName>
+        <ParameterName>LetterPrefix</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="PatientNoShowLetterFormatted" DisplayName="Patient No Show Letter Formatted" RPC="BSDX RESOURCE LETTER FORMATTED">
+      <RequiredParams>
+        <ParameterName>ClinicID</ParameterName>
+        <ParameterName>LetterPrefix</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="PatientCancellationLetter" DisplayName="Patient Cancellation Letter" RPC="BSDX PRINT APPT LETTER">
+      <RequiredParams>
+        <ParameterName>AppointmentID</ParameterName>
+        <ParameterName>LetterPrefix</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="PatientNoShowLetter" DisplayName="Patient No Show Letter" RPC="BSDX PRINT APPT LETTER">
+      <RequiredParams>
+        <ParameterName>AppointmentID</ParameterName>
+        <ParameterName>LetterPrefix</ParameterName>
+      </RequiredParams>
+      <HardCodedParams>
+        <Parameter ID="LetterPrefix">N</Parameter>
+      </HardCodedParams>
+    </Report>
+    <Report ID="PatientAppointments" DisplayName="Patient Appointments" RPC="BSDX PATIENT APPT DISPLAY">
+      <RequiredParams>
+        <ParameterName>PatientID</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="PatientAppointmentLetter" DisplayName="Patient Appointment Letter" RPC="BSDX PATIENT APPT DISPLAY">
+      <RequiredParams>
+        <ParameterName>PatientID</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="PatientHSMerge" DisplayName="Patient HS Merge" RPC="BSDX HEALTH SUMMARY">
+      <RequiredParams>
+        <ParameterName>PatientID</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="PatientHistory" DisplayName="Patient History Report" RPC="BSDX PATIENT HISTORY">
+      <RequiredParams>
+        <ParameterName>PatientID</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="PatientRebookLetter" DisplayName="Patient Auto Rebook Letter" RPC="BSDX REBOOK LIST">
+      <RequiredParams>
+        <ParameterName>PatientIDList</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="PatientReminderLetterFormatted" DisplayName="Patient Reminder Letter Formatted" RPC="BSDX RESOURCE LETTER FORMATTED">
+      <RequiredParams>
+        <ParameterName>ClinicID</ParameterName>
+        <ParameterName>LetterPrefix</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="ClinicSchedulerReport" DisplayName="Clinic Scheduler Report" RPC="BSDX CLINIC SCHED RPT">
+      <RequiredParams>
+        <ParameterName>ClinicIDList</ParameterName>
+        <ParameterName>StartDate</ParameterName>
+        <ParameterName>EndDate</ParameterName>
+        <ParameterName>ReportAll</ParameterName>
+      </RequiredParams>
+    </Report>
+    <Report ID="ClinicWalkInReport" DisplayName="Clinic WalkIn Report" RPC="BSDX CLINIC SCHED RPT WALKIN">
+      <RequiredParams>
+        <ParameterName>ClinicIDList</ParameterName>
+        <ParameterName>StartDate</ParameterName>
+        <ParameterName>EndDate</ParameterName>
+      </RequiredParams>
+    </Report>
+  </Reports>
+  <Parameters>
+    <Parameter Name="AppointmentID">
+    </Parameter>
+    <Parameter Name="LetterPrefix">
+      <Value ID="Patient">A</Value>
+      <Value ID="Clinic">C</Value>
+      <Value ID="NoShow">N</Value>
+      <Value ID="Reminder">R</Value>
+    </Parameter>
+    <Parameter Name="PatientID">
+    </Parameter>
+    <Parameter Name="PatientIDList">
+    </Parameter>
+    <Parameter Name="ClinicIDList">
+    </Parameter>
+    <Parameter Name="StartDate">
+    </Parameter>
+    <Parameter Name="EndDate">
+    </Parameter>
+    <Parameter Name="ClinicID">
+    </Parameter>
+    <Parameter Name="ReportAll">
+    </Parameter>
+  </Parameters>
+</ReportsConfiguration>

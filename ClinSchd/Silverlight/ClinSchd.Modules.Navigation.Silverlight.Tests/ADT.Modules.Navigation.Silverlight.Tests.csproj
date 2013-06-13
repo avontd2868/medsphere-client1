@@ -1,0 +1,240 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3206D35-5395-4A92-B4C7-39769C0BC835}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ADT.Modules.Navigation.Silverlight.Tests</RootNamespace>
+    <AssemblyName>ADT.Modules.Navigation.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>ADT.Modules.Navigation.Silverlight.Tests.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>ADT.Modules.Navigation.Tests.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>.</SccProjectName>
+    <SccLocalPath>..\..\..</SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>MSSCCI:UnifiedSCC - compatibility mode</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIB\Silverlight\ServiceLocation\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIB\Silverlight\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Silverlight.Testing, Version=2.0.20930.1042, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIB\Silverlight\UnitTestFramework\Microsoft.Silverlight.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight, Version=2.0.20930.1042, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIB\Silverlight\UnitTestFramework\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\Admittedpatients\AdmittedPatientsPresentationModelFixture.cs">
+      <Link>ChildModules\AdmittedPatients\AdmittedPatients\AdmittedPatientsPresentationModelFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\controllers\NavigationAdmittedPatientsControllerFixture.cs">
+      <Link>ChildModules\AdmittedPatients\Controllers\NavigationAdmittedPatientsControllerFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\mocks\MockAdmittedPatientsView.cs">
+      <Link>ChildModules\AdmittedPatients\Mocks\MockAdmittedPatientsView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\mocks\MockEventAggregator.cs">
+      <Link>ChildModules\AdmittedPatients\Mocks\MockEventAggregator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\mocks\MockNavigationAdmittedPatientsController.cs">
+      <Link>ChildModules\AdmittedPatients\Mocks\MockNavigationAdmittedPatientsController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\mocks\MockRegion.cs">
+      <Link>ChildModules\AdmittedPatients\Mocks\MockRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\mocks\MockRegionManager.cs">
+      <Link>ChildModules\AdmittedPatients\Mocks\MockRegionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\mocks\MockUnityContainer.cs">
+      <Link>ChildModules\AdmittedPatients\Mocks\MockUnityContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\mocks\MockUnityResolver.cs">
+      <Link>ChildModules\AdmittedPatients\Mocks\MockUnityResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\ChildModules\Admittedpatients\NavigationAdmittedPatientsModuleFixture.cs">
+      <Link>ChildModules\AdmittedPatients\NavigationAdmittedPatientsModuleFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\controllers\NavigationPatientWorkspaceControllerFixture.cs">
+      <Link>ChildModules\PatientWorkspace\Controllers\NavigationPatientWorkspaceControllerFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\mocks\MockEventAggregator.cs">
+      <Link>ChildModules\PatientWorkspace\Mocks\MockEventAggregator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\mocks\MockNavigationPatientWorkspaceController.cs">
+      <Link>ChildModules\PatientWorkspace\Mocks\MockNavigationPatientWorkspaceController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\mocks\MockPatientWorkspaceView.cs">
+      <Link>ChildModules\PatientWorkspace\Mocks\MockPatientWorkspaceView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\mocks\MockRegion.cs">
+      <Link>ChildModules\PatientWorkspace\Mocks\MockRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\mocks\MockRegionManager.cs">
+      <Link>ChildModules\PatientWorkspace\Mocks\MockRegionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\mocks\MockUnityContainer.cs">
+      <Link>ChildModules\PatientWorkspace\Mocks\MockUnityContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\mocks\MockUnityResolver.cs">
+      <Link>ChildModules\PatientWorkspace\Mocks\MockUnityResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\NavigationPatientWorkspaceModuleFixture.cs">
+      <Link>ChildModules\PatientWorkspace\NavigationPatientWorkspaceModuleFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Navigation.Tests\ChildModules\PatientWorkspace\patientworkspace\PatientWorkspacePresentationModelFixture.cs">
+      <Link>ChildModules\PatientWorkspace\PatientWorkspace\PatientWorkspacePresentationModelFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\Group\GroupPresentationModelFixture.cs">
+      <Link>Group\GroupPresentationModelFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\Controllers\NavigationControllerFixture.cs">
+      <Link>Controllers\NavigationControllerFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\Mocks\MockGroupView.cs">
+      <Link>Mocks\MockGroupView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\Mocks\MockEventAggregator.cs">
+      <Link>Mocks\MockEventAggregator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\Mocks\MockNavigationController.cs">
+      <Link>Mocks\MockNavigationController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\Mocks\MockRegion.cs">
+      <Link>Mocks\MockRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\Mocks\MockRegionManager.cs">
+      <Link>Mocks\MockRegionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\Mocks\MockUnityContainer.cs">
+      <Link>Mocks\MockUnityContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\Mocks\MockUnityResolver.cs">
+      <Link>Mocks\MockUnityResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Navigation.Tests\NavigationModuleFixture.cs">
+      <Link>NavigationModuleFixture.cs</Link>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildModules\AdmittedPatients\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildModules\PatientWorkspace\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CAL\Silverlight\Composite.Presentation\Composite.Presentation.Silverlight.csproj">
+      <Project>{E0D65CA9-810F-4FEC-9CB8-D8943FF28A9D}</Project>
+      <Name>Composite.Presentation.Silverlight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CAL\Silverlight\Composite\Composite.Silverlight.csproj">
+      <Project>{CC79289A-2563-40B8-895C-3CDA56BA4956}</Project>
+      <Name>Composite.Silverlight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADT.Infrastructure.Silverlight\ADT.Infrastructure.Silverlight.csproj">
+      <Project>{1C3517FB-89B0-4726-9D78-3C7E28C9E49E}</Project>
+      <Name>ADT.Infrastructure.Silverlight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADT.Modules.Navigation.Silverlight\ADT.Modules.Navigation.Silverlight.csproj">
+      <Project>{ABBA21ED-438A-4BC5-93DD-C5250AC0211C}</Project>
+      <Name>ADT.Modules.Navigation.Silverlight</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="ChildModules\AdmittedPatients\App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="ChildModules\PatientWorkspace\App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\v3.0\Microsoft.Silverlight.CSharp.targets" Condition="" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+      <UserProperties ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" ProjectLinkReference="f176d436-b909-417f-b46d-9877cc9a57c7" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

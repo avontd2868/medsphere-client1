@@ -1,0 +1,69 @@
+﻿<Window x:Class="ClinSchd.Modules.ChangeServer.ChangeServer.ChangeServerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+	xmlns:grid="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:inf="clr-namespace:ClinSchd.Infrastructure;assembly=ClinSchd.Infrastructure"
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+    Height="353" Width="518" Title="RPMS Server Address"
+    Icon="/ClinSchd;component/Resources/ClinSchd.ico"
+>
+	<!--<presentation:RadWindow.Icon>
+		<Image Source="/ClinSchd;component/Resources/Resources/App.ico" />
+	</presentation:RadWindow.Icon>-->
+	<Grid Background="BlanchedAlmond" FocusManager.FocusedElement="{Binding ElementName=txtSearch}" Height="448" Width="578">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" MinHeight="23" />
+			<RowDefinition Height="238*"/>
+            <RowDefinition Height="140*" />
+            <RowDefinition Height="10"/>
+			<RowDefinition Height="Auto" MinHeight="37" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+        <Grid Grid.Row="3" Height="10" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0">Server Namespace</Label>
+        </Grid>
+
+        <!--        <controls:RadGridView Background="Beige" x:Name="Patients" ItemsSource="{Binding ServerList}"
+			AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" BorderThickness="1"
+			CanUserInsertRows="False" CanUserFreezeColumns="False" CanUserDeleteRows="False" CanUserSelect="True"
+			ShowGroupPanel="True" ShowColumnHeaders="True" RowIndicatorVisibility="Collapsed" SelectionMode="Single" 
+			MouseDoubleClick="ChangeServer_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+			SelectedItem="{Binding ChangeServer}"
+			>
+			<controls:RadGridView.Columns>
+				<controls:GridViewDataColumn Header="Name" DataMemberBinding="{Binding Name}" Width="140*" IsFilterable="False" />
+				<controls:GridViewDataColumn Header="HRN" DataMemberBinding="{Binding HRN}" Width="60*" IsFilterable="False" />
+				<controls:GridViewDataColumn Header="DOB" DataMemberBinding="{Binding DOB}" Width="70*" IsFilterable="False" />
+				<controls:GridViewDataColumn Header="SSN" DataMemberBinding="{Binding SSN}" Width="70*" IsFilterable="False" />
+				<controls:GridViewDataColumn Header="Status" DataMemberBinding="{Binding Status}" Width="180*" IsFilterable="False" />
+			</controls:RadGridView.Columns>
+		</controls:RadGridView>
+  -->
+        <presentation:RadButton Grid.Row="2" Height="25" Margin="0,14,208,0" VerticalAlignment="Top" Click="Button_OK_Click" IsDefault="True" HorizontalAlignment="Right" Width="80">OK</presentation:RadButton>
+        <presentation:RadButton Grid.Row="2" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,14,106,0" VerticalAlignment="Top" Click="Button_Cancel_Click">Cancel</presentation:RadButton>
+        <Label Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="20,39,0,0" Name="label1" VerticalAlignment="Top" Width="120">Server Port:</Label>
+        <Label Height="23.277" HorizontalAlignment="Left" Margin="20,12,0,0" VerticalAlignment="Top" Width="113.817" Grid.RowSpan="2">RPMS Server Address:</Label>
+        <TextBox Grid.RowSpan="2" Height="23" Margin="176,14,100,0" Name="textBox1" VerticalAlignment="Top">cbvmarradev01.medsphere.com</TextBox>
+        <TextBox Height="23" Margin="0,39,317,0" Name="textBox2" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Right" Width="85">9261</TextBox>
+        <Label Height="28" HorizontalAlignment="Left" Margin="20,90,0,0" Name="label2" VerticalAlignment="Top" Width="120" Grid.Row="1">Server namespace:</Label>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="176,90,0,0" Name="textBox3" VerticalAlignment="Top" Width="85" Grid.Row="1">EHRDTEST</TextBox>
+        <GroupBox Grid.Row="1" Header="Description" Margin="20,0,100,6" Name="groupBox1" Height="92" VerticalAlignment="Bottom">
+            <Grid>
+                <Label Margin="6" Name="label3"> 
+                    <TextBlock Text="Use this panel to specifiy the internet address and port of the RPMS server.  The RPMS Server Port refers to the IP Port to which the VA RPC Broker is assigned on the RPMS Server.  You may optionally specify the namespace (UCI) in which the application will run." MaxWidth="500" TextWrapping="Wrap" Height="59" Width="428" />
+                </Label>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

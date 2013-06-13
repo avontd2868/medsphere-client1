@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rpc_commands>
+  <rpc_command>
+    <name>BDGPM GET PATIENTS</name>
+    <param>D^</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BDGGSV GET PAT VISITS</name>
+    <param>3</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BDGGSV GET VISIT</name>
+    <param>9</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BDGGSV EDIT</name>
+    <param>9^.01~3|.012~25|.02~3100716|.03~A|.04~1|.08~11|.09~1|.11~1|.12~3|201~THIS IS MY DIAGNOSIS</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BDGDS ENTER/EDIT</name>
+    <param>8^^JUN 28, 2010@11:00:00^Procedure^Diagnosis^JUN 28, 2010@00:00:00^1^3^03^2^Interview Comments^JUN 28, 2010@00:00:00^1^1^1^1^Post OP Comments</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BDGPM GET MOVEMENT TYPES</name>
+    <param>1</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BDGGRM INPATIENT FUTURE APPTS</name>
+    <param>3100712</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BDGPM PATIENT MOVEMENT EVENTS</name>
+    <param>17^1^^1^2^10^2^Diagnosis^3^^26^11^10^9^2784^Additional Comments^^^</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BMX VERSION INFO</name>
+    <param>BSDX^VersionInfo</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BSDX GET BASIC REG INFO</name>
+    <param>36</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BSDX RESOURCES</name>
+    <param>1</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BSDX RESOURCE GROUPS BY USER</name>
+    <param>1</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BSDX GROUP RESOURCE</name>
+    <param>1</param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BSDX SCHEDULING USER INFO</name>
+    <param>1</param>
+    <table_name>ResourceGroup</table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BSDX SCHEDULE USER</name>
+    <param></param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BSDX GET ACCESS GROUP TYPES</name>
+    <param></param>
+    <table_name></table_name>
+  </rpc_command>
+  <rpc_command>
+    <name>BSDX CLINIC SETUP</name>
+    <param></param>
+    <table_name></table_name>
+  </rpc_command>
+</rpc_commands>

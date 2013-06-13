@@ -1,0 +1,327 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:infModels="clr-namespace:ClinSchd.Infrastructure.Models;assembly=ClinSchd.Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:ribbonBar="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.RibbonBar"
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation" 
+	xmlns:cal="clr-namespace:Microsoft.Practices.Composite.Presentation.Commands;assembly=Microsoft.Practices.Composite.Presentation"
+ 	xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+   x:Class="ClinSchd.Modules.Ribbon.Schedule.ScheduleView"
+    Height="Auto" Width="Auto" mc:Ignorable="d">
+
+		<DockPanel Background="AliceBlue">
+        <Grid DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+            <DockPanel Width="400">
+                <DockPanel.Resources>
+                    <DataTemplate x:Key="GridLikeDataTemplate">
+                        <DockPanel>
+                            <TextBlock Width="36" DockPanel.Dock="Right" Foreground="Gray" Text="{Binding SSNMasked}" />
+                            <TextBlock DockPanel.Dock="Right" Foreground="Gray" Text="SSN:" Margin="0,0,5,0" />
+                            <TextBlock Width="70" DockPanel.Dock="Right" Foreground="Gray" Text="{Binding DOB}"  Margin="0,0,15,0" />
+                            <TextBlock Text="{Binding Name}" Margin="0,0,20,0" />
+                        </DockPanel>
+                    </DataTemplate>                    
+                </DockPanel.Resources>
+                <Label DockPanel.Dock="Left">Select Patient:</Label>
+                
+                <presentation:RadComboBox Name="patientSearchComboBox" IsEditable="True" IsReadOnly="False" CanAutocompleteSelectItems="False"
+                 CanKeyboardNavigationSelectItems="False" IsTextSearchEnabled="False" StaysOpenOnEdit="True" OpenDropDownOnFocus="True"
+                 ItemsSource="{Binding PatientList}" KeyUp="RadComboBox_KeyUp" TextBoxBase.TextChanged="PatientSelection_TextChanged"
+                 ItemTemplate="{StaticResource GridLikeDataTemplate}" SelectionChanged="RadComboBox_SelectionChanged" LostFocus="patientSearchComboBox_LostFocus"
+                 EmptyText="{Binding Patient.Name}"></presentation:RadComboBox>
+            </DockPanel>
+        </Grid>
+            <ribbonBar:RadRibbonBar Name="RadRibbonBar1" DockPanel.Dock="Top" Title=""
+					ApplicationButtonImageSource="/ClinSchd;component/Resources/App.ico" ApplicationName="{Binding PaneTitle}">
+				<presentation:RadRibbonBar.QuickAccessToolBar>
+					<presentation:QuickAccessToolBar  />
+				</presentation:RadRibbonBar.QuickAccessToolBar>
+				<ribbonBar:RadRibbonBar.ApplicationMenu>
+					<ribbonBar:ApplicationMenu>
+						<ribbonBar:RadRibbonButton
+								LargeImage="/ClinSchd;component/Resources/TransferPatient.ico"
+								Text="Scheduling Management" Command="{Binding SchedulingManagementCommand}" Size="Large" />
+						<ribbonBar:RadRibbonButton
+								LargeImage="/ClinSchd;component/Resources/DaySurgery.ico"
+								Text="Change RPMS Server" cal:Click.Command="{Binding ChangeServerCommand}" Size="Large" />
+                        <ribbonBar:RadRibbonButton
+							    LargeImage="/ClinSchd;component/Resources/DaySurgery.ico"
+							    Text="Change RPMS User" cal:Click.Command="{Binding ChangeUserCommand}" Size="Large" />
+                        <ribbonBar:RadRibbonButton
+							    LargeImage="/ClinSchd;component/Resources/DaySurgery.ico"
+							    Text="Change RPMS Division" cal:Click.Command="{Binding ChangeDivisionCommand}" Size="Large" />
+                    <ribbonBar:RadRibbonButton
+							   LargeImage="/ClinSchd;component/Resources/Printer.ico"
+							    Text="Print Current Scheduler" cal:Click.Command="{Binding PrintCurrentSchedulerCommand}" Size="Large" />
+                    <ribbonBar:RadRibbonButton
+							    LargeImage="/ClinSchd;component/Resources/ClinSchdExit.ico"
+							    Text="Exit" Command="{Binding ExitCommand}" Size="Large" />
+				</ribbonBar:ApplicationMenu>
+				</ribbonBar:RadRibbonBar.ApplicationMenu>
+                
+				<ribbonBar:RadRibbonTab Header="Tasks">
+                    <ribbonBar:RadRibbonGroup Header="Actions" DialogLauncherVisibility="Collapsed">
+                    <ribbonBar:RadRibbonGroup.Variants>
+                        <ribbonBar:GroupVariant Variant="Collapsed" Priority="9" />
+                    </ribbonBar:RadRibbonGroup.Variants>
+                    <ribbonBar:RadCollapsiblePanel>
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+								        Text="New" IsEnabled="{Binding IsNewAppointmentEnabled}"
+                                        Command="{Binding NewAppointmentCommand}"
+								        CommandParameter="New Appointment"
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+								        Text="Walk In" IsEnabled="{Binding IsNewAppointmentEnabled}"
+                                        Command="{Binding WalkInAppointmentCommand}"
+								        CommandParameter="WalkIn Appointment"
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonSplitButton Size="Medium" HorizontalAlignment="Center">
+                            <ribbonBar:RadRibbonSplitButton.DropDownContent>
+                                <telerikNavigation:RadContextMenu Name="radTreeView3">
+                                    <telerikNavigation:RadMenuItem Header="Edit Appointment" Command="{Binding EditAppointmentCommand}"
+								    CommandParameter="Edit Appointment"/>
+                                    <telerikNavigation:RadMenuItem Header="View Appointment" Command="{Binding ViewAppointmentCommand}"
+								    CommandParameter="View Patient Appointments" />
+                                    <telerikNavigation:RadMenuItem Header="Cancel Appointment" Command="{Binding CancelAppointmentCommand}"
+								    CommandParameter="Cancel Appointment" />
+                                    <telerikNavigation:RadMenuItem Header="Undo Cancel Appointment" Command="{Binding UndoCancelAppointmentCommand}"
+								    CommandParameter="Undo Cancel Appointment" />
+                                    <telerikNavigation:RadMenuItem Header="Find Appointment" Command="{Binding FindAppointmentCommand}"
+								    CommandParameter="Find Appointment" />
+                                </telerikNavigation:RadContextMenu>
+                            </ribbonBar:RadRibbonSplitButton.DropDownContent>
+                        </ribbonBar:RadRibbonSplitButton >
+                    </ribbonBar:RadCollapsiblePanel>
+                    <ribbonBar:RadCollapsiblePanel>
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+                                        Text="Check In" IsEnabled="{Binding IsNotCheckedInAppointmentEnabled}"
+                                        Command="{Binding CheckInPatientCommand}" 
+								        CommandParameter="Check In Appointment"
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+								        Text="Check Out" IsEnabled="{Binding IsNotCheckedOutAppointmentEnabled}"
+                                        Command="{Binding CheckOutPatientCommand}"
+								        CommandParameter="Check Out Appointment"
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+								        Text="No Show" IsEnabled="{Binding IsNotNoShowAppointmentEnabled}"
+                                        Command="{Binding MarkAsNoShowCommand}"
+								        CommandParameter="No Show"
+                                        Size="Medium" />
+                    </ribbonBar:RadCollapsiblePanel>
+                    <ribbonBar:RadCollapsiblePanel>
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+                                        Text="Undo Check In" IsEnabled="{Binding IsCheckedInAppointmentEnabled}"
+                                        Command="{Binding UndoCheckInPatientCommand}"
+								        CommandParameter="Undo CheckIn"
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+								        Text="Undo Check Out" IsEnabled="{Binding IsCheckedOutAppointmentEnabled}"
+                                        Command="{Binding UndoCheckOutPatientCommand}"
+								        CommandParameter="Undo CheckOut"
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+								        Text="Undo No Show" IsEnabled="{Binding IsNoShowAppointmentEnabled}"
+                                        Command="{Binding UndoANoShowCommand}"
+								        CommandParameter="Undo No Show"
+                                        Size="Medium" />
+                    </ribbonBar:RadCollapsiblePanel>
+                </ribbonBar:RadRibbonGroup>
+
+                    <ribbonBar:RadRibbonGroup Header="Arrangement" DialogLauncherVisibility="Collapsed">
+                    <ribbonBar:RadRibbonGroup.Variants>
+                        <ribbonBar:GroupVariant Variant="Collapsed" Priority="9" />
+                    </ribbonBar:RadRibbonGroup.Variants>
+                    <ribbonBar:RadCollapsiblePanel>
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+								        Text="Time Scale"
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonComboBox IsEditable="False" Width="80" SelectedIndex="{Binding TimeScaleIndex}" Name="radCombox2" SelectionChanged="radCombox2_SelectionChanged">
+                            <ribbonBar:RadRibbonComboBoxItem Content="10-Minute" />
+                            <ribbonBar:RadRibbonComboBoxItem Content="15-Minute" />
+                            <ribbonBar:RadRibbonComboBoxItem Content="20-Minute" />
+                            <ribbonBar:RadRibbonComboBoxItem Content="30-Minute" />
+                        </ribbonBar:RadRibbonComboBox>
+                    </ribbonBar:RadCollapsiblePanel>
+                    <ribbonBar:RadCollapsiblePanel>
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+                                        Command="{Binding ChangeViewModeCommand}"
+								        CommandParameter="Day"
+                                       Text="Day" 
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+                                        Command="{Binding ChangeViewModeCommand}"
+								        CommandParameter="Week"
+								        Text="Week" 
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+                                        Command="{Binding ChangeViewModeCommand}"
+								        CommandParameter="Month"
+								        Text="Month" 
+                                        Size="Medium" />
+                    </ribbonBar:RadCollapsiblePanel>
+                </ribbonBar:RadRibbonGroup>
+
+                    <ribbonBar:RadRibbonGroup Header="Clipboard" DialogLauncherVisibility="Collapsed">
+                    <ribbonBar:RadRibbonGroup.Variants>
+                        <ribbonBar:GroupVariant Variant="Collapsed" Priority="9" />
+                    </ribbonBar:RadRibbonGroup.Variants>
+                    <ribbonBar:RadCollapsiblePanel>
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/app.ico" Command="{Binding CopyAppointmentCommand}"
+								        CommandParameter="Copy Appointment" IsEnabled="{Binding IsEditAppointmentEnabled}"
+								        Text="Copy"
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/app.ico" Command="{Binding PasteAppointmentCommand}"
+								        CommandParameter="Paste Appointment" IsEnabled="{Binding IsNewAppointmentEnabled}"
+								        Text="Paste"
+                                        Size="Medium" />
+                    </ribbonBar:RadCollapsiblePanel>
+                </ribbonBar:RadRibbonGroup>
+
+                    <ribbonBar:RadRibbonGroup Header="Reports" DialogLauncherVisibility="Collapsed" >
+                    <ribbonBar:RadRibbonGroup.Variants>
+                        <ribbonBar:GroupVariant Variant="Collapsed" Priority="9" />
+                    </ribbonBar:RadRibbonGroup.Variants>
+                    <ribbonBar:RadCollapsiblePanel>
+                        <ribbonBar:RadRibbonSplitButton Size="Large" Text="Reports"  LargeImage="/ClinSchd;component/Resources/AdmitPatient.ico">
+                            <ribbonBar:RadRibbonSplitButton.DropDownContent>
+                                <telerikNavigation:RadContextMenu Name="radTreeView4">
+                                    <telerikNavigation:RadMenuItem Header="Reminder Letter" Command="{Binding ReportReminderLetterCommand}"/>
+                                    <telerikNavigation:RadMenuItem Header="Rebook Letter" Command="{Binding ReportRebookLetterCommand}"/>
+                                    <telerikNavigation:RadMenuItem Header="Cancellation Letter" Command="{Binding ReportCancellationLetterCommand}"/>
+                                    <telerikNavigation:RadMenuItem Header="Patient Letter" Command="{Binding ReportPatientLetterCommand}" />
+                                    <telerikNavigation:RadMenuItem  IsSeparator="True"/>
+                                    <telerikNavigation:RadMenuItem Header="Patient Appointment Report" Command="{Binding ReportPatientAppointmentCommand}" />
+                                    <telerikNavigation:RadMenuItem Header="Patient History Report" Command="{Binding ReportPatientHistoryCommand}" />
+                                    <telerikNavigation:RadMenuItem Header="Patient HS Merge Report" Command="{Binding ReportPatientHSMergeCommand}" />
+                                    <telerikNavigation:RadMenuItem  IsSeparator="True"/>
+                                    <telerikNavigation:RadMenuItem Header="Clinic Schedules Report" Command="{Binding ReportClinicSchedulerCommand}" />
+                                    <telerikNavigation:RadMenuItem Header="Walk In Report" Command="{Binding ReportClinicWalkInCommand}" />
+                                </telerikNavigation:RadContextMenu>
+                            </ribbonBar:RadRibbonSplitButton.DropDownContent>
+                        </ribbonBar:RadRibbonSplitButton >
+                    </ribbonBar:RadCollapsiblePanel>
+                </ribbonBar:RadRibbonGroup>
+                <ribbonBar:RadRibbonGroup Header="Selected Clinic">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Primary Provider</Label>
+                        <Label Grid.Row="0" Grid.Column="1" IsEnabled="False" Content="{Binding Clinic.PROVIDER}"/>
+                        <Label Grid.Row="1" Grid.Column="0">Overbook Limit</Label>
+                        <Label Grid.Row="1" Grid.Column="1" IsEnabled="False" Content="{Binding Clinic.OVERBOOK}"/>
+
+                        <Label Grid.Row="0" Grid.Column="2">Inactive Date</Label>
+                        <Label Grid.Row="0" Grid.Column="3" IsEnabled="False" Content="{Binding Clinic.INACTIVE}"/>
+                        <Label Grid.Row="1" Grid.Column="2">Reactive Date</Label>
+                        <Label Grid.Row="1" Grid.Column="3" IsEnabled="False" Content="{Binding Clinic.REACTIVE}"/>
+
+                    </Grid>
+                </ribbonBar:RadRibbonGroup>
+              </ribbonBar:RadRibbonTab>
+                
+                <ribbonBar:RadRibbonTab Header="System">
+                <ribbonBar:RadRibbonGroup Header="Scheduling Management" IsEnabled="{Binding IsManagerUser}">
+                    <ribbonBar:RadRibbonButton
+								LargeImage="/ClinSchd;component/Resources/ViewEditPatient.ico"
+								Text="Scheduling Management" 
+                                Command="{Binding SchedulingManagementCommand}"
+								CommandParameter="Scheduling Management"
+                                Size="Large" />
+                </ribbonBar:RadRibbonGroup>
+                    
+                <ribbonBar:RadRibbonGroup Header="Availability">
+                    <ribbonBar:RadRibbonButton
+								LargeImage="/ClinSchd;component/Resources/DischargePatient.ico"
+								Text="Availability" 
+                                Command="{Binding AvialiabilityResourceCommand}"
+								CommandParameter="Scheduled Visit"
+                                Size="Large" />
+                </ribbonBar:RadRibbonGroup>
+                <ribbonBar:RadRibbonGroup Header="Change RPMS" DialogLauncherVisibility="Collapsed">
+                    <ribbonBar:RadRibbonGroup.Variants>
+                        <ribbonBar:GroupVariant Variant="Collapsed" Priority="9" />
+                    </ribbonBar:RadRibbonGroup.Variants>
+
+                    <ribbonBar:RadCollapsiblePanel>
+                        <!--<ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+                                        Text="Server" Command="{Binding ChangeServerCommand}" CommandParameter="Change Server"
+                                        Size="Medium" />-->
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+								        Text="User" Command="{Binding ChangeUserCommand}" CommandParameter="Change User"
+                                        Size="Medium" />
+                        <ribbonBar:RadRibbonButton 
+								        SmallImage="/ClinSchd;component/Resources/TransferPatient.ico" 
+								        Text="Division" Command="{Binding ChangeDivisionCommand}" CommandParameter="Change Division"
+                                        Size="Medium" />
+                    </ribbonBar:RadCollapsiblePanel>
+                </ribbonBar:RadRibbonGroup>
+                <ribbonBar:RadRibbonGroup Header="Selected Clinic">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Primary Provider</Label>
+                        <Label Grid.Row="0" Grid.Column="1" IsEnabled="False" Content="{Binding Clinic.PROVIDER}"/>
+                        <Label Grid.Row="1" Grid.Column="0">Overbook Limit</Label>
+                        <Label Grid.Row="1" Grid.Column="1" IsEnabled="False" Content="{Binding Clinic.OVERBOOK}"/>
+
+                        <Label Grid.Row="0" Grid.Column="2">Inactive Date</Label>
+                        <Label Grid.Row="0" Grid.Column="3" IsEnabled="False" Content="{Binding Clinic.INACTIVE}"/>
+                        <Label Grid.Row="1" Grid.Column="2">Reactive Date</Label>
+                        <Label Grid.Row="1" Grid.Column="3" IsEnabled="False" Content="{Binding Clinic.REACTIVE}"/>
+
+                    </Grid>
+                </ribbonBar:RadRibbonGroup>
+
+            </ribbonBar:RadRibbonTab>
+
+                <ribbonBar:RadRibbonTab Header="Help">
+					<ribbonBar:RadRibbonGroup Header="Help">
+						<ribbonBar:RadRibbonButton
+								LargeImage="/ClinSchd;component/Resources/Help.ico"
+								Text="Help"
+								Command="{Binding HelpCommand}"
+								CommandParameter="Help"
+								IsAutoSize="True" SplitText="True" Size="Large" />
+					</ribbonBar:RadRibbonGroup>
+				</ribbonBar:RadRibbonTab>
+			</ribbonBar:RadRibbonBar>
+		</DockPanel>
+</UserControl>
+
+    
+    
+    

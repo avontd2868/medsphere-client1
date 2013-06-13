@@ -1,0 +1,142 @@
+﻿<presentation:RadPane x:Name="paneTaskAvailability" Title="{Binding PaneTitle}"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:infModels="clr-namespace:ClinSchd.Infrastructure.Models;assembly=ClinSchd.Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:input="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+	xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+	xmlns:cal="clr-namespace:Microsoft.Practices.Composite.Presentation.Commands;assembly=Microsoft.Practices.Composite.Presentation"
+    xmlns:adtcontrols="clr-namespace:ClinSchd.Infrastructure.Controls;assembly=ClinSchd.Infrastructure"
+    x:Class="ClinSchd.Modules.Task.Availability.AvailabilityView"
+    xmlns:scheduler="clr-namespace:Telerik.Windows.Controls.Scheduler;assembly=Telerik.Windows.Controls.Scheduler"
+    xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+    xmlns:telerikScheduler="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Scheduler"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+    CanUserClose="True"
+    CanDockInDocumentHost="False"
+    CanUserPin="True"
+    CanFloat="False"
+    Unloaded="paneTaskAvailability_Unloaded"
+    Loaded="paneTaskScheduler_Loaded"
+    IsSelected="{Binding IsSelectedTab, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+    >
+	<presentation:RadPane.Content>
+        <Grid >
+            <Grid.Resources>
+
+                <Style x:Key="AppointmentSubjectTextBox" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+                    <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBoxBase">
+                                <Border Background="{TemplateBinding Panel.Background}" 
+                            BorderBrush="{TemplateBinding Border.BorderBrush}" 
+                            BorderThickness="{TemplateBinding Border.BorderThickness}" 
+                          SnapsToDevicePixels="True">
+                                    <ScrollViewer Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+
+                <DataTemplate x:Key="AppointmentTemplate">
+                    <Grid Background="Transparent">
+                        <telerikNavigation:RadContextMenu.ContextMenu>
+                            <telerikNavigation:RadContextMenu Name="AppointmentContextMenu" ItemClick="SchedulerContextMenu_ItemClick">
+                                <telerikNavigation:RadMenuItem  Header="Add New Access Block" IsEnabled="False" />
+                                <telerikNavigation:RadMenuItem  Header="Edit Access Block" IsEnabled="{Binding Occurrence.Appointment.IsEditAccessBlockEnabled}" />
+                                <telerikNavigation:RadMenuItem  Header="Delete Access Block" IsEnabled="{Binding Occurrence.Appointment.IsDeleteAccessBlockEnabled}" />
+                            </telerikNavigation:RadContextMenu>
+                        </telerikNavigation:RadContextMenu.ContextMenu>
+                        <ToolTipService.ToolTip>
+                            <Border Width="255" Height="255" CornerRadius="2"  >
+                                <Grid Margin="3,8,0,15" Width="242">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition  Width="55"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition MinHeight="100"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Top"  Height="56" BorderBrush="#FF417542" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2" Width="240" HorizontalAlignment="Left">
+
+                                        <Border BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="1,1,1,1"  Background="{Binding Path=Occurrence.Appointment.Category.CategoryBrush}" >
+                                            <TextBlock Text="{Binding Path=Occurrence.Appointment.Subject}"   TextWrapping="Wrap"  TextAlignment="Left" FontWeight="Bold" VerticalAlignment="Center" Height="31" Width="200" HorizontalAlignment="Left" Margin="5,0,0,0" />
+                                        </Border>
+
+                                    </Border>
+
+                                    <TextBlock  TextWrapping="Wrap" FontStyle="Italic" Grid.Column="0" Grid.ColumnSpan="2" Width="230"  Grid.Row="1" Text="{Binding Path=Occurrence.Appointment.Body}"  TextAlignment="Left" HorizontalAlignment="Left"/>
+                                    <TextBlock  TextWrapping="Wrap" FontStyle="Italic" Grid.Column="0" Grid.ColumnSpan="1" Width="auto"  Grid.Row="2" Text="From: "  TextAlignment="Left" HorizontalAlignment="Left"/>
+                                    <TextBlock  TextWrapping="Wrap" FontStyle="Italic" Grid.Column="1" Grid.ColumnSpan="1" Width="230"  Grid.Row="2" Text="{Binding Path=Occurrence.Appointment.Start}"  TextAlignment="Left" HorizontalAlignment="Left"/>
+                                    <TextBlock  TextWrapping="Wrap" FontStyle="Italic" Grid.Column="0" Grid.ColumnSpan="1" Width="auto"  Grid.Row="3" Text="To: "  TextAlignment="Left" HorizontalAlignment="Left"/>
+                                    <TextBlock  TextWrapping="Wrap" FontStyle="Italic" Grid.Column="1" Grid.ColumnSpan="1" Width="230"  Grid.Row="3" Text="{Binding Path=Occurrence.Appointment.End}"  TextAlignment="Left" HorizontalAlignment="Left"/>
+                                </Grid>
+                            </Border>
+                        </ToolTipService.ToolTip>
+
+                        <TextBox x:Name="PART_SubjectTextBox"  
+                     HorizontalAlignment="Stretch" Style="{StaticResource AppointmentSubjectTextBox}" 
+                    VerticalAlignment="Top"
+                    IsHitTestVisible="False" TextWrapping="Wrap"
+								 Text="{Binding Occurrence.Appointment.Subject,Mode=TwoWay}"
+                Margin="0 -1 18 0"/>
+                    </Grid>
+                </DataTemplate>
+
+            </Grid.Resources>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <telerikScheduler:RadScheduler x:Name="scheduler" Grid.Row="1" MouseUp="scheduler_MouseUp"
+                                           DisplayEmptyGroup="True"  OpenModalDialogs="True" 
+                                           AppointmentTemplate="{StaticResource AppointmentTemplate}"   
+                                           Loaded="SchedulerView_Loaded"
+                                           AppointmentCreating="scheduler_AppointmentCreating" 
+                                           AppointmentEditing="scheduler_AppointmentEditing"
+                                           AppointmentEdited="scheduler_AppointmentEdited"
+                                           AppointmentDeleting="scheduler_AppointmentDeleting"
+                                           SelectedViewStartDateChanged="scheduler_SelectedViewStartDateChanged"
+                                           ViewMode="Week" MonthViewScrollBarVisibility="Collapsed" 
+                                           FirstDayOfWeek="Monday" IsViewModeNavigationEnabled="False" 
+                                           ActiveViewDefinitionChanged="scheduler_ActiveViewDefinitionChanged"
+                                           LayoutUpdated="scheduler_LayoutUpdated"
+                                           Panel.ZIndex="0" AvailableViewModes="Week" ShowsConfirmationWindowOnDelete="False" FontSize="12" ForceCursor="True">
+                <telerikScheduler:RadScheduler.WeekViewDefinition>
+                    <telerikScheduler:WeekViewDefinition DayStartTime="00:00:00"  DayEndTime="23:59:59" TimeSlotLength="{Binding TimeScale}" ViewDefinitionChanged="scheduler_ActiveViewDefinitionChanged" 
+                                                         LargeChangeInterval="1d" SmallChangeInterval="1d" VisibleDays="{Binding DayRange}" />
+                </telerikScheduler:RadScheduler.WeekViewDefinition>
+                <telerikScheduler:RadScheduler.DayViewDefinition>
+
+                    <telerikScheduler:DayViewDefinition DayStartTime="00:00:00"  DayEndTime="23:59:59" TimeSlotLength="{Binding TimeScale}" ViewDefinitionChanged="scheduler_ActiveViewDefinitionChanged"
+                                                        LargeChangeInterval="1d" SmallChangeInterval="1d" />
+
+                </telerikScheduler:RadScheduler.DayViewDefinition>
+                <telerikNavigation:RadContextMenu.ContextMenu >
+                    <telerikNavigation:RadContextMenu Name="SchedulerContextMenu" ItemClick="SchedulerContextMenu_ItemClick" IsEnabled="{Binding IsEnableUpdateAppointment}">
+                        <telerikNavigation:RadMenuItem  Header="Add New Access Block" />
+                        <telerikNavigation:RadMenuItem  Header="Edit Access Block" IsEnabled="False" />
+                        <telerikNavigation:RadMenuItem  Header="Delete Access Block" IsEnabled="False" />
+                        <telerikNavigation:RadMenuItem IsSeparator="True" />
+                        <telerikNavigation:RadMenuItem Header="Save Template..." Command="{Binding SaveTemplateCommand}" />
+                        <telerikNavigation:RadMenuItem Header="Apply Template..." Command="{Binding ApplyTemplateCommand}" />
+                    </telerikNavigation:RadContextMenu>
+                </telerikNavigation:RadContextMenu.ContextMenu>
+            </telerikScheduler:RadScheduler>
+        </Grid>
+    </presentation:RadPane.Content>
+</presentation:RadPane>

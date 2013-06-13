@@ -1,0 +1,150 @@
+﻿<presentation:RadPane x:Name="paneManagementResources" Title="Clinics And Users"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:infModels="clr-namespace:ClinSchd.Infrastructure.Models;assembly=ClinSchd.Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:input="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:Converters="clr-namespace:ClinSchd.Infrastructure.Converters;assembly=ClinSchd.Infrastructure"
+    xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+    xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:gridView="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:navigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"	xmlns:cal="clr-namespace:Microsoft.Practices.Composite.Presentation.Commands;assembly=Microsoft.Practices.Composite.Presentation"
+    xmlns:data="clr-namespace:Telerik.Windows.Data;assembly=Telerik.Windows.Data"
+	x:Class="ClinSchd.Modules.Management.Resources.ResourcesView"
+    CanUserClose="False"
+    CanDockInDocumentHost="False"
+    CanUserPin="False"
+    CanFloat="False"
+	>
+    <presentation:RadPane.Content>
+        <Grid Background="BlanchedAlmond">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="110"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="6,6,6,6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="0">Users:</Label>
+                <ListBox Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Name="UserListBox"
+                         ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         DisplayMemberPath="Name" SelectedValuePath="Value" ItemsSource="{Binding Users}" 
+                         SelectedValue="{Binding UserIEN, Mode=TwoWay}" SelectionChanged="UserListBox_SelectionChanged"></ListBox>
+                <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" >
+                    <presentation:RadButton HorizontalAlignment="Center" Name="AddClinic" Width="100" Height="25" Margin="6,50,6,3" VerticalAlignment="Top" IsDefault="True" Click="AddClinic_Click">Add Clinic</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Name="EditClinic"  Width="100" Height="25" Margin="6,80,6,3" VerticalAlignment="Top" Click="EditClinic_Click">Edit Clinic</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Name="RemoveClinic"  Width="100" Height="25" Margin="6,110,6,3" VerticalAlignment="Top" Click="RemoveClinic_Click">Remove Clinic</presentation:RadButton>
+
+                    <presentation:RadButton HorizontalAlignment="Center" Name="AddUser" Width="100" Height="25" Margin="6,3,6,98" VerticalAlignment="Bottom" IsDefault="True" Click="AddUser_Click">Add User</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Name="RemoveUser" Width="100" Height="25" Margin="6,3,6,68" 
+                                            VerticalAlignment="Bottom" IsDefault="True" Click="RemoveUser_Click">Remove User</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Name="RemoveAll" Width="100" Height="25" Margin="6,3,6,38" 
+                                            VerticalAlignment="Bottom" Click="RemoveAll_Click">Remove All</presentation:RadButton>
+                </Grid>
+
+                <Label Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="2">Clinics:</Label>
+                <Grid Grid.Row="1" Grid.Column="2" Margin="0,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0" SelectionChanged="ListBox_SelectionChanged"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Name="ResourceListBox"
+                         DisplayMemberPath="RESOURCE_NAME" SelectedValuePath="RESOURCEID" ItemsSource="{Binding ResourceList}" SelectedIndex="0"
+                         SelectedValue="{Binding ResourceIEN, Mode=TwoWay}"></ListBox>
+                    <Label Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0">Clinic Users:</Label>
+                    <ListBox Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="0" Name="ResourceUserListBox"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         DisplayMemberPath="USERNAME" SelectedValuePath="BSDX_RESOURCE_USER_IEN" ItemsSource="{Binding ResourceUserList}" 
+                         SelectedValue="{Binding ResourceUserIEN, Mode=TwoWay}" SelectionChanged="ResourceUserListBox_SelectionChanged"></ListBox>
+                    <presentation:RadButton Name="EditUser" IsDefault="True" Grid.Row="3" Width="100" Height="25"
+                                        Margin="0,3,3,0" VerticalAlignment="Center" HorizontalAlignment="Right" Click="EditUser_Click">Edit User</presentation:RadButton>
+                </Grid>
+            </Grid>
+            <GroupBox Grid.Row="1" Margin="6,6,6,10">
+                <GroupBox.Header>
+                    <TextBlock Text="Description" />
+                </GroupBox.Header>
+
+                <TextBlock Text="Use the resources panel to define the set of clinical entities available for scheduling at this facility.  Resources may include care providers (for example, dentists and physicians) or other kinds of scheduled services, facilities or equipment.  Click the small + sign next to the resource name to manage the users who can schedule this resource." TextWrapping="Wrap"/>
+            </GroupBox>
+
+        </Grid>
+
+        <!--<Grid Background="BlanchedAlmond">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="480"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <grid:RadGridView Grid.Row="0" x:Name="ResourcesManagementGrid" Background="Beige" 
+                              AutoGenerateColumns="False" IsReadOnly="False"
+				              CanUserFreezeColumns="False" CanUserInsertRows="False" CanUserDeleteRows="False" 
+				              ItemsSource="{Binding ResourceList}" SelectedItem="{Binding SelectedResources}">
+                <grid:RadGridView.Columns>
+                    <grid:GridViewToggleRowDetailsColumn />
+                    <grid:GridViewDataColumn Header="Resource Name" DataMemberBinding="{Binding RESOURCE_NAME}" Width="*" />
+                </grid:RadGridView.Columns>
+                <grid:RadGridView.RowDetailsTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="900" Margin="0" VerticalAlignment="Center" controls:StyleManager.Theme="Office_Black">
+                            <Border BorderBrush="#FF848484" BorderThickness="0,1,0,0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <grid:RadGridView Grid.Row="0" ItemsSource="{Binding}" Height="300" RowIndicatorVisibility="Collapsed" AutoGenerateColumns="False" 
+															  CanUserFreezeColumns="False" BorderThickness="0" CanUserResizeColumns="False"
+															  ShowGroupPanel="False" 
+															  Margin="0" 
+															  Width="900">
+
+                                        <grid:RadGridView.Resources>
+                                            <Style x:Key="GridViewToggleButtonColumnStyle" TargetType="gridView:GridViewCell">
+                                                <Setter Property="Padding" Value="0,0,0,0" />
+                                            </Style>
+                                        </grid:RadGridView.Resources>
+                                        <grid:RadGridView.Columns>
+                                            <grid:GridViewToggleRowDetailsColumn CellStyle="{StaticResource GridViewToggleButtonColumnStyle}" />
+                                            <grid:GridViewDataColumn Header="Resource User ID" DataMemberBinding="{Binding ResourceID.Item(0)}" />
+                                            <grid:GridViewDataColumn Header="Resource User Name" DataMemberBinding="{Binding ResourceID.Item(1)}" />
+                                        </grid:RadGridView.Columns>
+                                    </grid:RadGridView>
+                                    <presentation:RadButton Grid.Row="2" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,0,120,12" VerticalAlignment="Bottom" IsDefault="True">Add Users</presentation:RadButton>
+                                    <presentation:RadButton Grid.Row="2" HorizontalAlignment="Right" Width="100" Height="25" Margin="0,0,12,12" VerticalAlignment="Bottom" >Change Users</presentation:RadButton>
+
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </grid:RadGridView.RowDetailsTemplate>
+
+            </grid:RadGridView>
+            <GroupBox Grid.Row="2">
+                <GroupBox.Header>
+                    <TextBlock Text="Description" />
+                </GroupBox.Header>
+
+                <TextBlock Text="Use the resources panel to define the set of clinical entities available for scheduling at this facility.  Resources may include care providers (for example, dentists and physicians) or other kinds of scheduled services, facilities or equipment.  Click the small + sign next to the resource name to manage the users who can schedule this resource." TextWrapping="Wrap"/>
+            </GroupBox>
+            <presentation:RadButton Grid.Row="4" HorizontalAlignment="Left" Width="100" Height="25" Margin="12,0,0,12" VerticalAlignment="Bottom" IsDefault="True">Add Resources</presentation:RadButton>
+            <presentation:RadButton Grid.Row="4" HorizontalAlignment="Left" Width="120" Height="25" Margin="120,0,0,12" VerticalAlignment="Bottom" >Change Resources</presentation:RadButton>
+        </Grid>-->
+    </presentation:RadPane.Content>
+</presentation:RadPane>

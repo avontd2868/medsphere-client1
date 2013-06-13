@@ -1,0 +1,95 @@
+﻿<presentation:RadPane x:Name="paneManagementResourceGroups" Title="Clinic Groups"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:infModels="clr-namespace:ClinSchd.Infrastructure.Models;assembly=ClinSchd.Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:input="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+    xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:gridView="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:navigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"	
+    xmlns:cal="clr-namespace:Microsoft.Practices.Composite.Presentation.Commands;assembly=Microsoft.Practices.Composite.Presentation"
+    xmlns:data="clr-namespace:Telerik.Windows.Data;assembly=Telerik.Windows.Data"
+    x:Class="ClinSchd.Modules.Management.ResourceGroups.ResourceGroupsView"
+    CanUserClose="False"
+    CanDockInDocumentHost="False"
+    CanUserPin="False"
+    CanFloat="False"
+    >
+    <presentation:RadPane.Content>
+
+        <Grid Background="BlanchedAlmond">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="110"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="6,6,6,6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="0">Clinics:</Label>
+                <ListBox Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Name="ResourceListBox"
+                         DisplayMemberPath="RESOURCE_NAME" SelectedValuePath="RESOURCEID" ItemsSource="{Binding ResourceList}" 
+                         SelectedValue="{Binding ResourceIEN, Mode=TwoWay}"></ListBox>
+
+                <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" >
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,45,6,3" 
+                                            VerticalAlignment="Top" IsDefault="True" Name="NewGroup"
+                                            Click="NewGroup_Click">New Group</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,75,6,3" 
+                                            VerticalAlignment="Top" Name="EditGroup"
+                                            Click="EditGroup_Click">Edit Group</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,105,6,3" 
+                                            VerticalAlignment="Top" Name="RemoveGroup"
+                                            Click="RemoveGroup_Click">Remove Group</presentation:RadButton>
+
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,3,6,93" 
+                                            VerticalAlignment="Bottom" IsDefault="True" Name="AddClinic" Click="AddClinic_Click">Add Clinic</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,3,6,63" 
+                                            VerticalAlignment="Bottom" Name="AddAll" Click="AddAll_Click">Add All</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,3,6,33" 
+                                            VerticalAlignment="Bottom" IsDefault="True" Name="RemoveClinic" Click="RemoveClinic_Click">Remove Clinic</presentation:RadButton>
+                    <presentation:RadButton HorizontalAlignment="Center" Width="100" Height="25" Margin="6,3,6,3" 
+                                            VerticalAlignment="Bottom" Name="RemoveAll" Click="RemoveAll_Click">Remove All</presentation:RadButton>
+                </Grid>
+
+                <Label Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="2">Clinic Groups:</Label>
+                <Grid Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0" Name="ClinicGroupListBox"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                         DisplayMemberPath="Name" SelectedValuePath="Value" ItemsSource="{Binding ClinicGroupList}" 
+                         SelectedValue="{Binding ClinicGroupIEN, Mode=TwoWay}" SelectionChanged="ClinicGroupListBox_SelectionChanged"></ListBox>
+                    <Label Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0">Clinic List:</Label>
+                    <ListBox Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="0" 
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Name="GroupedClinic"
+                         DisplayMemberPath="RESOURCE_NAME" SelectedValuePath="RESOURCE_GROUP_ITEMID" ItemsSource="{Binding SchdGroupedResources}" 
+                         SelectedValue="{Binding GroupedClinicIEN, Mode=TwoWay}"></ListBox>
+                </Grid>
+            </Grid>
+            <GroupBox Grid.Row="1" Margin="6,6,6,10">
+                <GroupBox.Header>
+                    <TextBlock Text="Description" />
+                </GroupBox.Header>
+
+                <TextBlock Text="Use the resources panel to define the set of clinical entities available for scheduling at this facility.  Resources may include care providers (for example, dentists and physicians) or other kinds of scheduled services, facilities or equipment.  Click the small + sign next to the resource name to manage the users who can schedule this resource." TextWrapping="Wrap"/>
+            </GroupBox>
+
+        </Grid>
+    </presentation:RadPane.Content>
+</presentation:RadPane>

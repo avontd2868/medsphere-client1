@@ -1,0 +1,54 @@
+﻿<Window x:Class="ClinSchd.Modules.CheckOut.CheckOut.CheckOutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+	xmlns:grid="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:inf="clr-namespace:ClinSchd.Infrastructure;assembly=ClinSchd.Infrastructure"
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:adtcontrols="clr-namespace:ClinSchd.Infrastructure.Controls;assembly=ClinSchd.Infrastructure"
+    xmlns:Telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    Title="Appointment Check Out" Height="270" Width="450" 
+    Icon="/ClinSchd;component/Resources/ClinSchd.ico"
+>
+
+    <Grid ShowGridLines="False" Background="BlanchedAlmond" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="260"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,12,0,6">Patient Name:</TextBlock>
+            <TextBox HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="2" Name="PatientName" VerticalAlignment="Bottom" IsEnabled="False"
+                     Text="{Binding PatientName,Mode=TwoWay}" Margin="3,3,0,3"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,12,0,6" >CheckOut Time:</TextBlock>
+            <adtcontrols:DateTimePicker Name="CheckOutTime" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom" 
+                     Margin="3,12,12,12" SelectedDateTime="{Binding CheckOut.CheckOutDateTime, Mode=TwoWay}" />
+            
+            <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,3,0,12">Visit Provider:</TextBlock>
+            <Telerik:RadComboBox Grid.Row="2" Grid.Column="2" Name="Provider" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" 
+                     DisplayMemberPath="Name" SelectedValuePath="IEN" Height="Auto"
+                     ItemsSource="{Binding Providers}" SelectedValue="{Binding CheckOut.ProviderIEN, Mode=TwoWay}" Margin="3,3,0,12"/>
+        </Grid>
+
+        <GroupBox Header="Description" Name="Description" Grid.Row="1" >
+            <TextBlock HorizontalAlignment="Stretch" Name="label2" VerticalAlignment="Bottom" TextWrapping="Wrap">Use this panel to check out an appointment.  The default Visit Provider is what the user selected when he/she checked in the patient. You could specify a different provider when you check out.</TextBlock>
+        </GroupBox>
+        <presentation:RadButton Margin="0,6,90,6" Click="Button_OK_Click" IsDefault="False" Grid.Row="3" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70">OK</presentation:RadButton>
+        <presentation:RadButton Margin="0,6,12,6"  Click="Button_Cancel_Click" IsDefault="False" Grid.Row="3" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70" >Cancel</presentation:RadButton>
+    </Grid>
+</Window>

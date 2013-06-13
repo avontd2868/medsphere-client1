@@ -1,0 +1,55 @@
+﻿<Window x:Class="ClinSchd.Modules.ResourceSelection.ResourceSelection.ResourceSelectionView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+	xmlns:grid="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:inf="clr-namespace:ClinSchd.Infrastructure;assembly=ClinSchd.Infrastructure"
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+    Height="500" Width="600" Title="{Binding PaneTitle}"
+    Icon="/ClinSchd;component/Resources/ClinSchd.ico"
+>
+	<!--<presentation:RadWindow.Icon>
+		<Image Source="/ClinSchd;component/Resources/Resources/App.ico" />
+	</presentation:RadWindow.Icon>-->
+	<Grid Background="BlanchedAlmond" FocusManager.FocusedElement="{Binding ElementName=txtSearch}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="10"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid Grid.Row="0">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="10"/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0">Search by Name</Label>
+			<TextBox Name="txtSearch" Grid.Column="2" TextChanged="PatientSelection_TextChanged" KeyUp="txtSearch_KeyUp"
+				CharacterCasing="Upper" ForceCursor="False" AutoWordSelection="True"></TextBox>
+		</Grid>
+		<controls:RadGridView Background="Beige" x:Name="Clinics" ItemsSource="{Binding ResourceList}"
+			AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" BorderThickness="1"
+			CanUserInsertRows="False" CanUserFreezeColumns="False" CanUserDeleteRows="False" CanUserSelect="True"
+			ShowGroupPanel="True" ShowColumnHeaders="True" RowIndicatorVisibility="Collapsed" SelectionMode="Single" 
+			MouseDoubleClick="PatientSelection_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+			SelectedItem="{Binding SelectedResource}"
+			>
+			<controls:RadGridView.Columns>
+                <controls:GridViewDataColumn Header="Resource ID" DataMemberBinding="{Binding RESOURCEID}" Width="50*" IsFilterable="False" />
+                <controls:GridViewDataColumn Header="Resource Name" DataMemberBinding="{Binding RESOURCE_NAME}" Width="120*" IsFilterable="False" />
+				<controls:GridViewDataColumn Header="Overbook Limit" DataMemberBinding="{Binding OVERBOOK}" Width="70*" IsFilterable="False" />
+				<controls:GridViewDataColumn Header="Time Scale" DataMemberBinding="{Binding TIMESCALE}" Width="80*" IsFilterable="False" />
+            </controls:RadGridView.Columns>
+		</controls:RadGridView>
+
+        <presentation:RadButton Grid.Row="3" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,0,100,12" VerticalAlignment="Bottom" Click="Button_OK_Click" IsDefault="True">OK</presentation:RadButton>
+		<presentation:RadButton Grid.Row="3" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,0,12,12" VerticalAlignment="Bottom" Click="Button_Cancel_Click">Cancel</presentation:RadButton>
+	</Grid>
+</Window>

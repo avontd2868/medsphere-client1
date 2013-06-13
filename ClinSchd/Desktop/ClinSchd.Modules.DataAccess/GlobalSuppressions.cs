@@ -1,0 +1,10 @@
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "ClinSchd.Modules.DataAccess")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "ClinSchd.Modules.DataAccess.Controllers")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "ClinSchd.Modules.DataAccess.Services")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA2210:AssembliesShouldHaveValidStrongNames")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "DataAccess", Scope = "member", Target = "ClinSchd.Modules.DataAccess.DataAccess.DataAccessPresentationModel.#.ctor(ClinSchd.Modules.DataAccess.DataAccess.IDataAccessView,ClinSchd.Infrastructure.Interfaces.IDataAccessService)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Scope = "member", Target = "ClinSchd.Modules.DataAccess.DataAccess.DataAccessView.#DetailsGrid")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "DataAccess", Scope = "type", Target = "ClinSchd.Modules.DataAccess.Services.DataAccessService")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily", Scope = "member", Target = "ClinSchd.Modules.DataAccess.DataAccess.DataAccessView.#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Scope = "member", Target = "ClinSchd.Modules.DataAccess.DataAccess.DataAccessView.#ListGrid", Justification = "Used on story board for animation.")]

@@ -1,0 +1,90 @@
+﻿<Window x:Name="paneManagementAddResource" Title="Access Block"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:infModels="clr-namespace:ClinSchd.Infrastructure.Models;assembly=ClinSchd.Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:input="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:Converters="clr-namespace:ClinSchd.Infrastructure.Converters;assembly=ClinSchd.Infrastructure"
+    xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+    xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:gridView="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:navigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"	
+    xmlns:cal="clr-namespace:Microsoft.Practices.Composite.Presentation.Commands;assembly=Microsoft.Practices.Composite.Presentation"
+    xmlns:data="clr-namespace:Telerik.Windows.Data;assembly=Telerik.Windows.Data"
+	x:Class="ClinSchd.Modules.Task.AddEditAvailability.AddEditAvailabilityView"
+    Height="400" Width="465"
+	Icon="/ClinSchd;component/Resources/ClinSchd.ico"
+>
+
+    <Grid Background="BlanchedAlmond">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="65" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,3" >Start Time:</TextBlock>
+            <TextBox HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Name="StartTime" VerticalAlignment="Bottom" 
+                             Text="{Binding SchdAvailability.StartTime,Mode=TwoWay}" Margin="6,0,3,3" IsEnabled="False"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,3" >End Time:</TextBlock>
+            <TextBox HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="3" Name="EndTime" VerticalAlignment="Bottom" 
+                             Text="{Binding SchdAvailability.EndTime,Mode=TwoWay}" Margin="6,0,3,3" IsEnabled="False"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,3" >Clinic:</TextBlock>
+            <TextBox HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Name="ClinicName" VerticalAlignment="Bottom" 
+                             Text="{Binding SchdAvailability.RESOURCENAME,Mode=TwoWay}" Margin="6,0,3,3" IsEnabled="False"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,3" >Slots:</TextBlock>
+            <input:RadNumericUpDown Grid.Row="2" Grid.Column="1" Margin="6,0,30,3" ValueFormat="Numeric"  
+                                          Minimum="1" Maximum="730" IsInteger="True" Value="{Binding SchdAvailability.SLOTS, Mode=TwoWay}" />
+        
+            <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="3,0,0,3" >Notes:</TextBlock>
+            <TextBox HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Name="NotesTextBox" IsEnabled="{Binding IsNoteEnabled}" VerticalAlignment="Stretch" 
+                             Text="{Binding SchdAvailability.Note,Mode=TwoWay}" Margin="6,0,3,3" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,0,0,3" >Access Groups:</TextBlock>
+            <input:RadComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Name="AccessGroup" VerticalAlignment="Top" HorizontalAlignment="Stretch" 
+                                     DisplayMemberPath="Name" SelectedValuePath="Value" Margin="6,0,3,3"  SelectionChanged="AccessGroup_SelectionChanged"
+                                     ItemsSource="{Binding AccessGroupList}"  SelectedValue="{Binding AccessGroupIEN, Mode=TwoWay}"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="3,0,0,3" >Access Types:</TextBlock>
+            <ListBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="6,0,3,3" Name="AccessTypeListBox" 
+                         ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility ="Auto" 
+                         ItemsSource="{Binding SchdGroupedAccessTypes}" 
+                         SelectedValue="{Binding GroupedAccessTypeIEN, Mode=TwoWay}" 
+                         SelectedValuePath="ACCESS_TYPE_ID" DisplayMemberPath="ACCESS_TYPE">
+                <!--<ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel Orientation="Horizontal" MinWidth="150" MaxWidth="150" Margin="0,5, 0, 5" >
+                            <CheckBox Name="checkedListBoxItem" IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
+                            <ContentPresenter Content="{Binding ACCESS_TYPE}" Margin="5,0, 0, 0" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>-->
+            </ListBox>
+        </Grid>
+
+        <presentation:RadButton Grid.Row="3" Name="CancelButton" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,1,12,3" 
+                                VerticalAlignment="Bottom" Click="CancelButton_Click">Cancel</presentation:RadButton>
+        <presentation:RadButton Grid.Row="3" Name="OkButton" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,1,100,3" 
+                                VerticalAlignment="Bottom" Click="OkButton_Click">OK</presentation:RadButton>
+
+    </Grid>
+
+</Window>

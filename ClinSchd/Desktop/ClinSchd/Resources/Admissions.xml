@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    <Admissions>
+      <Admission>
+        <AdmittedDate>SEP 07, 2005@13:37</AdmittedDate>
+        <AdmittedOperation>SURGERY</AdmittedOperation>
+        <AdmittedFunction>DIRECT (1)</AdmittedFunction>
+        <DischargedDate>JUN 02, 2005@23:30</DischargedDate>
+        <DischargedOperation>SURGERY</DischargedOperation>
+        <DischargedFunction>DIRECT (1)</DischargedFunction>
+        <DxUponAdmission>RETURNED AFTER AMA DISCHARGE</DxUponAdmission>
+        <CodedAdmDX></CodedAdmDX>
+        <DRG></DRG>
+        <Consults></Consults>
+        <Diagnoses>** No Diagnoses Entered for Visit! **</Diagnoses>
+        <Providers>** No Providers Entered for Visit! **</Providers>
+        <PCCDatas>
+          <PCCData>
+          </PCCData>
+        </PCCDatas>
+        <Problems>
+          <Problem>
+            <Id>THC1</Id>
+            <Location>UNSPECIFIED HO 569 ALB</Location>
+            <Dx>250.00</Dx>
+            <Status>ACTIVE</Status>
+            <Onset></Onset>
+            <ProviderNarrative>DM</ProviderNarrative>
+            <Notes>THC Note#1 PER TESTING TODAY</Notes>
+          </Problem>
+        </Problems>
+        <Blah>
+          <BlahDate>FEB 19, 2005@12:00</BlahDate>
+          <BlahCategory>I</BlahCategory>
+          <BlahAssociatedData>Has 3 MEDICATIONS</BlahAssociatedData>
+        </Blah>
+        <Visits>
+          <Visit>
+            <Date>FEB 19, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 3 MEDICATIONS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 17, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 10, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+        </Visits>
+      </Admission>
+      <Admission>
+        <AdmittedDate>JUN 02, 2005@13:45</AdmittedDate>
+        <AdmittedOperation>SURGERY</AdmittedOperation>
+        <AdmittedFunction>DIRECT (1)</AdmittedFunction>
+        <DischargedDate>JUN 02, 2005@23:30</DischargedDate>
+        <DischargedOperation>SURGERY</DischargedOperation>
+        <DischargedFunction>DIRECT (1)</DischargedFunction>
+        <DxUponAdmission>RETURNED AFTER AMA DISCHARGE</DxUponAdmission>
+        <CodedAdmDX></CodedAdmDX>
+        <DRG></DRG>
+        <Consults></Consults>
+        <Diagnoses>** No Diagnoses Entered for Visit! **</Diagnoses>
+        <Providers>** No Providers Entered for Visit! **</Providers>
+        <PCCDatas>
+          <PCCData>
+          </PCCData>
+        </PCCDatas>
+        <Problems>
+          <Problem>
+            <Id>THC1</Id>
+            <Location>UNSPECIFIED HO 569 ALB</Location>
+            <Dx>250.00</Dx>
+            <Status>ACTIVE</Status>
+            <Onset></Onset>
+            <ProviderNarrative>DM</ProviderNarrative>
+            <Notes>THC Note#1 PER TESTING TODAY</Notes>
+          </Problem>
+        </Problems>
+        <Visits>
+          <Visit>
+            <Date>FEB 19, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 3 MEDICATIONS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 17, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+        </Visits>
+      </Admission>
+      <Admission>
+        <AdmittedDate>AUG 25, 2004@08:00</AdmittedDate>
+        <AdmittedOperation>SURGERY</AdmittedOperation>
+        <AdmittedFunction>DIRECT (1)</AdmittedFunction>
+        <DischargedDate>JUN 02, 2005@23:30</DischargedDate>
+        <DischargedOperation>SURGERY</DischargedOperation>
+        <DischargedFunction>DIRECT (1)</DischargedFunction>
+        <DxUponAdmission>RETURNED AFTER AMA DISCHARGE</DxUponAdmission>
+        <CodedAdmDX></CodedAdmDX>
+        <DRG></DRG>
+        <Consults></Consults>
+        <Diagnoses>** No Diagnoses Entered for Visit! **</Diagnoses>
+        <Providers>** No Providers Entered for Visit! **</Providers>
+        <PCCDatas>
+          <PCCData>
+          </PCCData>
+        </PCCDatas>
+        <Problems>
+          <Problem>
+            <Id>THC1</Id>
+            <Location>UNSPECIFIED HO 569 ALB</Location>
+            <Dx>250.00</Dx>
+            <Status>ACTIVE</Status>
+            <Onset></Onset>
+            <ProviderNarrative>DM</ProviderNarrative>
+            <Notes>THC Note#1 PER TESTING TODAY</Notes>
+          </Problem>
+        </Problems>
+        <Visits>
+          <Visit>
+            <Date>FEB 19, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 3 MEDICATIONS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 17, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+        </Visits>
+      </Admission>
+    </Admissions>

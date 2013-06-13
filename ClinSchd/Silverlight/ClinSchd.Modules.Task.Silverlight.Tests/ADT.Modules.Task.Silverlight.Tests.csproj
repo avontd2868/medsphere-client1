@@ -1,0 +1,357 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9F99B20-5758-40DE-8A39-B80E1AF2E3D4}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ADT.Modules.Task.Silverlight.Tests</RootNamespace>
+    <AssemblyName>ADT.Modules.Task.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>ADT.Modules.Task.Silverlight.Tests.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>ADT.Modules.Task.Tests.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>.</SccProjectName>
+    <SccLocalPath>..\..\..</SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>MSSCCI:UnifiedSCC - compatibility mode</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIB\Silverlight\ServiceLocation\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIB\Silverlight\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Silverlight.Testing, Version=2.0.20930.1042, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIB\Silverlight\UnitTestFramework\Microsoft.Silverlight.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight, Version=2.0.20930.1042, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIB\Silverlight\UnitTestFramework\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Admission\admission\AdmissionPresentationModelFixture.cs">
+      <Link>ChildModules\Admission\Admission\AdmissionPresentationModelFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Admission\controllers\TaskAdmissionControllerFixture.cs">
+      <Link>ChildModules\Admission\Controllers\TaskAdmissionControllerFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Admission\mocks\MockAdmissionView.cs">
+      <Link>ChildModules\Admission\Mocks\MockAdmissionView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Admission\mocks\MockEventAggregator.cs">
+      <Link>ChildModules\Admission\Mocks\MockEventAggregator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Admission\mocks\MockRegion.cs">
+      <Link>ChildModules\Admission\Mocks\MockRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Admission\mocks\MockRegionManager.cs">
+      <Link>ChildModules\Admission\Mocks\MockRegionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Admission\mocks\MockTaskAdmissionController.cs">
+      <Link>ChildModules\Admission\Mocks\MockTaskAdmissionController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Admission\mocks\MockUnityContainer.cs">
+      <Link>ChildModules\Admission\Mocks\MockUnityContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Admission\mocks\MockUnityResolver.cs">
+      <Link>ChildModules\Admission\Mocks\MockUnityResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\ChildModules\Admission\TaskAdmissionModuleFixture.cs">
+      <Link>ChildModules\Admission\TaskAdmissionModuleFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\controllers\TaskDaySurgeryControllerFixture.cs">
+      <Link>ChildModules\DaySurgery\Controllers\TaskDaySurgeryControllerFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\daysurgery\DaySurgeryPresentationModelFixture.cs">
+      <Link>ChildModules\DaySurgery\DaySurgery\DaySurgeryPresentationModelFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\mocks\MockDaySurgeryView.cs">
+      <Link>ChildModules\DaySurgery\Mocks\MockDaySurgeryView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\mocks\MockEventAggregator.cs">
+      <Link>ChildModules\DaySurgery\Mocks\MockEventAggregator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\mocks\MockRegion.cs">
+      <Link>ChildModules\DaySurgery\Mocks\MockRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\mocks\MockRegionManager.cs">
+      <Link>ChildModules\DaySurgery\Mocks\MockRegionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\mocks\MockTaskDaySurgeryController.cs">
+      <Link>ChildModules\DaySurgery\Mocks\MockTaskDaySurgeryController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\mocks\MockUnityContainer.cs">
+      <Link>ChildModules\DaySurgery\Mocks\MockUnityContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\mocks\MockUnityResolver.cs">
+      <Link>ChildModules\DaySurgery\Mocks\MockUnityResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\ChildModules\Daysurgery\TaskDaySurgeryModuleFixture.cs">
+      <Link>ChildModules\DaySurgery\TaskDaySurgeryModuleFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\controllers\TaskDischargeControllerFixture.cs">
+      <Link>ChildModules\Discharge\Controllers\TaskDischargeControllerFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\discharge\DischargePresentationModelFixture.cs">
+      <Link>ChildModules\Discharge\Discharge\DischargePresentationModelFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\mocks\MockDischargeView.cs">
+      <Link>ChildModules\Discharge\Mocks\MockDischargeView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\mocks\MockEventAggregator.cs">
+      <Link>ChildModules\Discharge\Mocks\MockEventAggregator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\mocks\MockRegion.cs">
+      <Link>ChildModules\Discharge\Mocks\MockRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\mocks\MockRegionManager.cs">
+      <Link>ChildModules\Discharge\Mocks\MockRegionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\mocks\MockTaskDischargeController.cs">
+      <Link>ChildModules\Discharge\Mocks\MockTaskDischargeController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\mocks\MockUnityContainer.cs">
+      <Link>ChildModules\Discharge\Mocks\MockUnityContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\mocks\MockUnityResolver.cs">
+      <Link>ChildModules\Discharge\Mocks\MockUnityResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\ChildModules\Discharge\TaskDischargeModuleFixture.cs">
+      <Link>ChildModules\Discharge\TaskDischargeModuleFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\controllers\TaskScheduledVisitControllerFixture.cs">
+      <Link>ChildModules\ScheduledVisit\Controllers\TaskScheduledVisitControllerFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\mocks\MockEventAggregator.cs">
+      <Link>ChildModules\ScheduledVisit\Mocks\MockEventAggregator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\mocks\MockRegion.cs">
+      <Link>ChildModules\ScheduledVisit\Mocks\MockRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\mocks\MockRegionManager.cs">
+      <Link>ChildModules\ScheduledVisit\Mocks\MockRegionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\mocks\MockScheduledVisitView.cs">
+      <Link>ChildModules\ScheduledVisit\Mocks\MockScheduledVisitView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\mocks\MockTaskScheduledVisitController.cs">
+      <Link>ChildModules\ScheduledVisit\Mocks\MockTaskScheduledVisitController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\mocks\MockUnityContainer.cs">
+      <Link>ChildModules\ScheduledVisit\Mocks\MockUnityContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\mocks\MockUnityResolver.cs">
+      <Link>ChildModules\ScheduledVisit\Mocks\MockUnityResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\scheduledvisit\ScheduledVisitPresentationModelFixture.cs">
+      <Link>ChildModules\ScheduledVisit\ScheduledVisit\ScheduledVisitPresentationModelFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\ChildModules\ScheduledVisit\TaskScheduledVisitModuleFixture.cs">
+      <Link>ChildModules\ScheduledVisit\TaskScheduledVisitModuleFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\Group\GroupPresentationModelFixture.cs">
+      <Link>Group\GroupPresentationModelFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\Controllers\TaskControllerFixture.cs">
+      <Link>Controllers\TaskControllerFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\Mocks\MockGroupView.cs">
+      <Link>Mocks\MockGroupGroupView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\Mocks\MockEventAggregator.cs">
+      <Link>Mocks\MockEventAggregator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\Mocks\MockTaskController.cs">
+      <Link>Mocks\MockTaskController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\Mocks\MockRegion.cs">
+      <Link>Mocks\MockRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\Mocks\MockRegionManager.cs">
+      <Link>Mocks\MockRegionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\Mocks\MockUnityContainer.cs">
+      <Link>Mocks\MockUnityContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\Mocks\MockUnityResolver.cs">
+      <Link>Mocks\MockUnityResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\TaskModuleFixture.cs">
+      <Link>TaskModuleFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\controllers\TaskTransferControllerFixture.cs">
+      <Link>ChildModules\Transfer\Controllers\TaskTransferControllerFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\mocks\MockEventAggregator.cs">
+      <Link>ChildModules\Transfer\Mocks\MockEventAggregator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\mocks\MockRegion.cs">
+      <Link>ChildModules\Transfer\Mocks\MockRegion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\mocks\MockRegionManager.cs">
+      <Link>ChildModules\Transfer\Mocks\MockRegionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\mocks\MockTaskTransferController.cs">
+      <Link>ChildModules\Transfer\Mocks\MockTaskTransferController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\mocks\MockTransferView.cs">
+      <Link>ChildModules\Transfer\Mocks\MockTransferView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\mocks\MockUnityContainer.cs">
+      <Link>ChildModules\Transfer\Mocks\MockUnityContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\mocks\MockUnityResolver.cs">
+      <Link>ChildModules\Transfer\Mocks\MockUnityResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\TaskTransferModuleFixture.cs">
+      <Link>ChildModules\Transfer\TaskTransferModuleFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\desktop\ADT.Modules.Task.Tests\ChildModules\Transfer\transfer\TransferPresentationModelFixture.cs">
+      <Link>ChildModules\Transfer\Transfer\TransferPresentationModelFixture.cs</Link>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildModules\Admission\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildModules\DaySurgery\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildModules\Discharge\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildModules\ScheduledVisit\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildModules\Transfer\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CAL\Silverlight\Composite.Presentation\Composite.Presentation.Silverlight.csproj">
+      <Project>{E0D65CA9-810F-4FEC-9CB8-D8943FF28A9D}</Project>
+      <Name>Composite.Presentation.Silverlight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CAL\Silverlight\Composite\Composite.Silverlight.csproj">
+      <Project>{CC79289A-2563-40B8-895C-3CDA56BA4956}</Project>
+      <Name>Composite.Silverlight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADT.Infrastructure.Silverlight\ADT.Infrastructure.Silverlight.csproj">
+      <Project>{1C3517FB-89B0-4726-9D78-3C7E28C9E49E}</Project>
+      <Name>ADT.Infrastructure.Silverlight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADT.Modules.Task.Silverlight\ADT.Modules.Task.Silverlight.csproj">
+      <Project>{38A00AE3-7F5B-4D52-A74E-E7DC303E9EF3}</Project>
+      <Name>ADT.Modules.Task.Silverlight</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="ChildModules\Admission\App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="ChildModules\Discharge\App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="ChildModules\Transfer\App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="ChildModules\DaySurgery\App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="ChildModules\ScheduledVisit\App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\v3.0\Microsoft.Silverlight.CSharp.targets" Condition="" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+      <UserProperties ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" ProjectLinkReference="f176d436-b909-417f-b46d-9877cc9a57c7" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

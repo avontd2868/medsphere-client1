@@ -1,0 +1,10 @@
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "ClinSchd.Modules.PatientAppt")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "ClinSchd.Modules.PatientAppt.Controllers")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "ClinSchd.Modules.PatientAppt.Services")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA2210:AssembliesShouldHaveValidStrongNames")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PatientAppt", Scope = "member", Target = "ClinSchd.Modules.PatientAppt.Group.GroupPresentationModel.#.ctor(ClinSchd.Modules.PatientAppt.Group.IGroupView,ClinSchd.Infrastructure.Interfaces.IPatientApptService)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Scope = "member", Target = "ClinSchd.Modules.PatientAppt.Group.GroupView.#DetailsGrid")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "PatientAppt", Scope = "type", Target = "ClinSchd.Modules.PatientAppt.Services.PatientApptService")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily", Scope = "member", Target = "ClinSchd.Modules.PatientAppt.Group.GroupView.#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Scope = "member", Target = "ClinSchd.Modules.PatientAppt.Group.GroupView.#ListGrid", Justification = "Used on story board for animation.")]

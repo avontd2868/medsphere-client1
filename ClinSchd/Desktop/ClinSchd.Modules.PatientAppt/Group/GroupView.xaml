@@ -1,0 +1,207 @@
+﻿<Window Title="{Binding PaneTitle}"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:infModels="clr-namespace:ClinSchd.Infrastructure.Models;assembly=ClinSchd.Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:navigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+	xmlns:regions="clr-namespace:Microsoft.Practices.Composite.Presentation.Regions;assembly=Microsoft.Practices.Composite.Presentation"
+	xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:Converters="clr-namespace:ClinSchd.Infrastructure.Converters;assembly=ClinSchd.Infrastructure"
+	xmlns:cal="clr-namespace:Microsoft.Practices.Composite.Presentation.Commands;assembly=Microsoft.Practices.Composite.Presentation"
+    xmlns:data="clr-namespace:Telerik.Windows.Data;assembly=Telerik.Windows.Data"
+    xmlns:input="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:gridView="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    x:Class="ClinSchd.Modules.PatientAppt.Group.GroupView"
+    Width="600"
+    Height="700"
+    Icon="/ClinSchd;component/Resources/ClinSchd.ico"    
+        >
+
+    <Grid >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <presentation:RadDocking x:Name="PatientApptsDocking" AllowUnsafeMode="True">
+			<presentation:RadDocking.DocumentHost>
+				<presentation:RadSplitContainer>
+                    <presentation:RadPaneGroup>
+                        <presentation:RadPane x:Name="panePatientApptAppointments" Title="Appointments"
+                        CanUserClose="False" CanDockInDocumentHost="False" CanUserPin="False" CanFloat="False">
+                            <presentation:RadPane.Content>
+
+                                <Grid Background="BlanchedAlmond">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <GroupBox Grid.Row="0" IsEnabled="False">
+                                        <GroupBox.Header>
+                                            <TextBlock Text="Patient Information" />
+                                        </GroupBox.Header>
+
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="140"/>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,12,0,3" >Name:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Name="NameTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.Name,Mode=TwoWay}" Margin="3,12,0,3"/>
+
+                                            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,3" TextWrapping="Wrap">DOB:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Name="DOBTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.DOB,Mode=TwoWay}" Margin="3,3,0,3"/>
+
+                                            <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,3" TextWrapping="Wrap">SSN:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="3" Name="SSNTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.SSNMasked,Mode=OneWay}" Margin="3,3,0,3"/>
+
+                                            <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,3">HRN:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Name="HRNTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.HRN,Mode=TwoWay}" Margin="3,3,0,3"/>
+
+                                            <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,6">Community:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Name="CommunityTextBox" VerticalAlignment="Bottom" 
+                             Text="" Margin="3,3,0,6"/>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox Grid.Row="2">
+                                        <GroupBox.Header>
+                                            <TextBlock Text="Appointment" />
+                                        </GroupBox.Header>
+
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="140"/>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,12,0,3" >Start Time:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Name="StartTimeTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding AppointmentData.StartTime,Mode=TwoWay}" Margin="3,12,0,3" IsEnabled="False"/>
+
+                                            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,3" TextWrapping="Wrap">Duration:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Name="DurationTextBox" IsEnabled="False" VerticalAlignment="Bottom" 
+                             Text="{Binding AppointmentData.Duration,Mode=TwoWay}" Margin="3,3,0,3" />
+
+                                            <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,3" TextWrapping="Wrap">Clinic:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="3" Name="ClinicTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding AppointmentData.ResourceName,Mode=TwoWay}" Margin="3,3,0,3" IsEnabled="False"/>
+
+                                            <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="3,3,0,6">Notes:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Name="NotesTextBox" IsEnabled="{Binding IsNoteEnabled}" VerticalAlignment="Bottom" 
+                             Text="{Binding AppointmentData.Notes,Mode=TwoWay}" Margin="3,3,0,6" TextWrapping="Wrap" AcceptsReturn="True" Height="100" VerticalScrollBarVisibility="Visible"/>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox Grid.Row="4" IsEnabled="False" VerticalAlignment="Stretch">
+                                        <GroupBox.Header>
+                                            <TextBlock Text="Appointment Conflicts" />
+                                        </GroupBox.Header>
+
+                                        <grid:RadGridView x:Name="AppointmentsPatientApptGrid" Background="Beige" AutoGenerateColumns="False" 
+				              CanUserFreezeColumns="False" CanUserInsertRows="False" CanUserDeleteRows="False" 
+				              ItemsSource="{Binding ConflictAppointments}" Margin="3,12,0,3" >
+                                            <grid:RadGridView.Columns>
+                                                <grid:GridViewDataColumn Header="Resource" DataMemberBinding="{Binding ResourceName}" Width="*" />
+                                                <grid:GridViewDataColumn Header="Patient" DataMemberBinding="{Binding Patient}" Width="180" />
+                                                <grid:GridViewDataColumn Header="Start Time" DataMemberBinding="{Binding StartTime}" Width="Auto" />
+                                                <grid:GridViewDataColumn Header="End Time" DataMemberBinding="{Binding EndTime}" Width="Auto" />
+                                            </grid:RadGridView.Columns>
+                                        </grid:RadGridView>
+                                    </GroupBox>
+                                </Grid>
+                            </presentation:RadPane.Content>
+                        </presentation:RadPane>
+                        <presentation:RadPane x:Name="panePatientApptContactInfo" Title="Contact Information"
+                        CanUserClose="False" CanDockInDocumentHost="False" CanUserPin="False" CanFloat="False">
+
+                            <presentation:RadPane.Content>
+
+                                <Grid Background="BlanchedAlmond">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <GroupBox Grid.Row="0" IsEnabled="False">
+                                        <GroupBox.Header>
+                                            <TextBlock Text="Address" />
+                                        </GroupBox.Header>
+
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="140"/>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,12,0,3" >Street:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Name="StreetTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.Street,Mode=TwoWay}" Margin="3,12,0,3"/>
+
+                                            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,3" TextWrapping="Wrap">City:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Name="CityTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.City,Mode=TwoWay}" Margin="3,3,0,3"/>
+
+                                            <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,3">State:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Name="StateTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.State,Mode=TwoWay}" Margin="3,3,0,3"/>
+
+                                            <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,3" TextWrapping="Wrap">Zip:</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="3" Name="ZipTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.Zip,Mode=TwoWay}" Margin="3,3,0,3"/>
+
+                                            <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,6">Phone (Home):</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Name="HomePhoneTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.HomePhone,Mode=TwoWay}" Margin="3,3,0,6"/>
+
+                                            <TextBlock Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3,3,0,6">Phone (Office):</TextBlock>
+                                            <TextBox HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" Name="OfficePhoneTextBox" VerticalAlignment="Bottom" 
+                             Text="{Binding PatientInformation.OfficePhone,Mode=TwoWay}" Margin="3,3,0,6"/>
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </presentation:RadPane.Content>
+                        </presentation:RadPane>
+                    </presentation:RadPaneGroup>
+                </presentation:RadSplitContainer>
+			</presentation:RadDocking.DocumentHost>
+		</presentation:RadDocking>
+
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,6,0,6" Width="auto" >Report:</TextBlock>
+        <input:RadComboBox Grid.Row="1" Name="ReportCombo" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="140" Margin="60,6,0,6" />
+        <presentation:RadButton Grid.Row="1" Name="PrintButton" HorizontalAlignment="Left" Width="80" Height="25" Margin="210,6,0,6" VerticalAlignment="Bottom" IsDefault="True" Command="{Binding PrintLetterCommand}" >Print</presentation:RadButton>
+        <presentation:RadButton Grid.Row="1" Name="OKButton" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,6,100,6" VerticalAlignment="Bottom" IsDefault="True" Click="OKButton_Click">OK</presentation:RadButton>
+        <presentation:RadButton Grid.Row="1" Name="CancelButton" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,6,12,6" VerticalAlignment="Bottom" IsDefault="True" Click="CancelButton_Click">Cancel</presentation:RadButton>
+    </Grid>
+</Window>

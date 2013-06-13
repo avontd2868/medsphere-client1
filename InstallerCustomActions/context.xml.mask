@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/PIMSOVID" debug="5" reloadable="true" crossContext="true">
+    <Resource name="vista/connectioninfo"
+        auth="Container"
+        jaasVistaLinkName="demo"
+        userSessionTimeout="5"
+        server="{SERVER}"
+        port="{PORT}"
+        vistaAccessCode="{ACCESS_CODE}"
+        vistaVerifyCode="{VERIFY_CODE}"
+        brokerType="ciabroker" uic="{NAMESPACE}"
+        type="com.medsphere.ovid.ws.service.ConnectionProperties"
+        factory="com.medsphere.ovid.ws.service.ConnectionPropertiesFactory"/>
+</Context>

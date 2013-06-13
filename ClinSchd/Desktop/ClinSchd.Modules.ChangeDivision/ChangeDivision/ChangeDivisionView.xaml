@@ -1,0 +1,31 @@
+﻿<Window x:Class="ClinSchd.Modules.ChangeDivision.ChangeDivision.ChangeDivisionView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+	xmlns:grid="clr-namespace:Telerik.Windows.Controls.GridView;assembly=Telerik.Windows.Controls.GridView"
+    xmlns:inf="clr-namespace:ClinSchd.Infrastructure;assembly=ClinSchd.Infrastructure"
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+    Height="220" Width="350" Title="Select Division"
+    Icon="/ClinSchd;component/Resources/ClinSchd.ico"
+>
+	<Grid ShowGridLines="False" Background="BlanchedAlmond" >
+		<Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+			<RowDefinition Height="80"/>
+			<RowDefinition Height="40"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="3,3,0,6">Select Division:</TextBlock>
+        <ListBox Name="DivisionListBox" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,0,3,6"
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                 SelectedIndex="{Binding IEN}" DisplayMemberPath="NAME" SelectedValuePath="IEN" ItemsSource="{Binding DivisionList}"
+                 SelectedValue="{Binding DivisionIEN, Mode=TwoWay}"></ListBox>
+
+        <GroupBox Header="Description" Name="Description" Grid.Row="2" Margin="3,0,3,0">
+            <TextBlock HorizontalAlignment="Stretch" Name="label2" VerticalAlignment="Bottom" TextWrapping="Wrap">Use this panel to select the Division.</TextBlock>
+        </GroupBox>
+        <presentation:RadButton Margin="0,6,90,6" Click="Button_OK_Click" IsDefault="False" Grid.Row="3" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70">OK</presentation:RadButton>
+        <presentation:RadButton Margin="0,6,12,6"  Click="Button_Cancel_Click" IsDefault="False" Grid.Row="3" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="70" >Cancel</presentation:RadButton>
+
+    </Grid>
+</Window>

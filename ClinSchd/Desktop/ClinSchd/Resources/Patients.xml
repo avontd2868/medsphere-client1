@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patients>
+  <Patient>
+    <Name>PATIENT,ALLISON</Name>
+    <HRN>4298</HRN>
+    <DOB>02-02-1901</DOB>
+    <IsAdmitted>Yes</IsAdmitted>
+    <Sex>F</Sex>
+    <SSN>000785650</SSN>
+    <Status>ACTIVE INPATIENT-ON WARD (SERIOUSLY ILL)</Status>
+    <Admitted>OCT 7,2002@14:59</Admitted>
+    <Transferred></Transferred>
+    <Ward>GMS</Ward>
+    <RoomBedExt></RoomBedExt>
+    <Provider>PROVIDER,ISABEL</Provider>
+    <Specialty>INTERNAL MEDICINE</Specialty>
+    <Attending>PROVIDER,ISABEL</Attending>
+    <AdmittedBy>PROVIDER,JADE</AdmittedBy>
+    <DischargeType>REGULAR DISCHARGE</DischargeType>
+    <Discharged>SEP 27,2002@09:58:39</Discharged>
+    <Provider>PROVIDER,JADE</Provider>
+    <Speciality>FAMILY PRACTICE</Speciality>
+    <HRCN>00-42-98</HRCN>
+    <PatientPhone>(505)555-8031</PatientPhone>
+    <PatientAddress>UNSPECIFIED NM 88340</PatientAddress>
+    <Phone>464-4775</Phone>
+    <Eligible>CHS and DIRECT</Eligible>
+    <Procedure>Knee Surgery</Procedure>
+    <WardLocation>PED</WardLocation>
+    <RoomBed>200</RoomBed>
+    <SurgeryProvider>DOCTOR,KATHRYN</SurgeryProvider>
+    <DateTimeToObservation>OCT 25, 2002@15:00</DateTimeToObservation>
+    <ReleaseDateTime>OCT 25, 2002@15:00</ReleaseDateTime>
+    <Diagnosis>Torn Ligament</Diagnosis>
+    <Admissions>
+      <Admission>
+        <Admitted>SEP 07, 2005@13:37</Admitted>
+      </Admission>
+      <Admission>
+        <AdmittedDate>JUN 02, 2005@13:45</AdmittedDate>
+        <AdmittedOperation>SURGERY</AdmittedOperation>
+        <AdmittedFunction>DIRECT (1)</AdmittedFunction>
+        <DischargedDate>JUN 02, 2005@23:30</DischargedDate>
+        <DischargedOperation>SURGERY</DischargedOperation>
+        <DischargedFunction>DIRECT (1)</DischargedFunction>
+        <DxUponAdmission>RETURNED AFTER AMA DISCHARGE</DxUponAdmission>
+        <CodedAdmDX></CodedAdmDX>
+        <DRG></DRG>
+        <Consults></Consults>
+        <Diagnoses>** No Diagnoses Entered for Visit! **</Diagnoses>
+        <Providers>** No Providers Entered for Visit! **</Providers>
+        <PCCDatas>
+          <PCCData>
+          </PCCData>
+        </PCCDatas>
+        <Problems>
+          <Problem>
+            <Id>THC1</Id>
+            <Location>UNSPECIFIED HO 569 ALB</Location>
+            <Dx>250.00</Dx>
+            <Status>ACTIVE</Status>
+            <Onset></Onset>
+            <ProviderNarrative>DM</ProviderNarrative>
+            <Notes>THC Note#1 PER TESTING TODAY</Notes>
+          </Problem>
+        </Problems>
+        <Visits>
+          <Visit>
+            <Date>FEB 19, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 3 MEDICATIONS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 17, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+        </Visits>
+      </Admission>
+      <Admission>
+        <Admitted>AUG 25, 2004@08:00</Admitted>
+      </Admission>
+    </Admissions>
+  </Patient>
+  <Patient>
+    <Name>PATIENT,ANDREA B</Name>
+    <HRN>7852</HRN>
+    <DOB>07-05-1901</DOB>
+    <IsAdmitted>Yes</IsAdmitted>
+    <Sex>F</Sex>
+    <SSN>000775162</SSN>
+    <Status>ACTIVE INPATIENT-on WARD (SI and DNR)</Status>
+    <Admitted>SEP 26,2002@15:33:30</Admitted>
+    <Transferred></Transferred>
+    <Ward>GMS</Ward>
+    <RoomBedExt>219-1 /</RoomBedExt>
+    <Provider>PROVIDER,JADE</Provider>
+    <Specialty>INTERNAL MEDICINE</Specialty>
+    <Attending>PROVIDER,JADE</Attending>
+    <AdmittedBy>PROVIDER,JADE</AdmittedBy>
+    <DischargeType>REGULAR DISCHARGE</DischargeType>
+    <Discharged>SEP 27,2002@09:58:39</Discharged>
+    <Provider>PROVIDER,JADE</Provider>
+    <Speciality>FAMILY PRACTICE</Speciality>
+    <HRCN>00-42-98</HRCN>
+    <PatientPhone>(505)555-8031</PatientPhone>
+    <PatientAddress>UNSPECIFIED NM 88340</PatientAddress>
+    <Phone>464-4775</Phone>
+    <Eligible>CHS and DIRECT</Eligible>
+    <Procedure>Knee Surgery</Procedure>
+    <WardLocation>PED</WardLocation>
+    <RoomBed>200</RoomBed>
+    <SurgeryProvider>DOCTOR,KATHRYN</SurgeryProvider>
+    <DateTimeToObservation>OCT 25, 2002@15:00</DateTimeToObservation>
+    <ReleaseDateTime>OCT 25, 2002@15:00</ReleaseDateTime>
+    <Diagnosis>Torn Ligament</Diagnosis>
+    <Admissions>
+      <Admission>
+        <Admitted>SEP 07, 2005@13:37</Admitted>
+      </Admission>
+      <Admission>
+        <AdmittedDate>JUN 02, 2005@13:45</AdmittedDate>
+        <AdmittedOperation>SURGERY</AdmittedOperation>
+        <AdmittedFunction>DIRECT (1)</AdmittedFunction>
+        <DischargedDate>JUN 02, 2005@23:30</DischargedDate>
+        <DischargedOperation>SURGERY</DischargedOperation>
+        <DischargedFunction>DIRECT (1)</DischargedFunction>
+        <DxUponAdmission>RETURNED AFTER AMA DISCHARGE</DxUponAdmission>
+        <CodedAdmDX></CodedAdmDX>
+        <DRG></DRG>
+        <Consults></Consults>
+        <Diagnoses>** No Diagnoses Entered for Visit! **</Diagnoses>
+        <Providers>** No Providers Entered for Visit! **</Providers>
+        <PCCDatas>
+          <PCCData>
+          </PCCData>
+        </PCCDatas>
+        <Problems>
+          <Problem>
+            <Id>THC1</Id>
+            <Location>UNSPECIFIED HO 569 ALB</Location>
+            <Dx>250.00</Dx>
+            <Status>ACTIVE</Status>
+            <Onset></Onset>
+            <ProviderNarrative>DM</ProviderNarrative>
+            <Notes>THC Note#1 PER TESTING TODAY</Notes>
+          </Problem>
+        </Problems>
+        <Visits>
+          <Visit>
+            <Date>FEB 19, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 3 MEDICATIONS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 17, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+        </Visits>
+      </Admission>
+      <Admission>
+        <Admitted>AUG 25, 2004@08:00</Admitted>
+      </Admission>
+    </Admissions>
+  </Patient>
+  <Patient>
+    <Name>PATIENT,ANNE MARIE</Name>
+    <HRN>1745</HRN>
+    <DOB>08-20-1901</DOB>
+    <IsAdmitted>Yes</IsAdmitted>
+    <Sex>F</Sex>
+    <SSN>000311756</SSN>
+    <Status>INACTIVE INPATIENT</Status>
+    <Admitted>SEP 27,2002@09:34:05</Admitted>
+    <Transferred></Transferred>
+    <Ward>PED</Ward>
+    <RoomBedExt>211-1 /</RoomBedExt>
+    <Provider>PROVIDER,JADE</Provider>
+    <Specialty>INTERNAL MEDICINE</Specialty>
+    <Attending>PROVIDER,JADE</Attending>
+    <AdmittedBy>PROVIDER,JADE</AdmittedBy>
+    <DischargeType>REGULAR DISCHARGE</DischargeType>
+    <Discharged>SEP 27,2002@09:58:39</Discharged>
+    <Provider>PROVIDER,JADE</Provider>
+    <Speciality>FAMILY PRACTICE</Speciality>
+    <HRCN>00-42-98</HRCN>
+    <PatientPhone>(505)555-8031</PatientPhone>
+    <PatientAddress>UNSPECIFIED NM 88340</PatientAddress>
+    <Phone>464-4775</Phone>
+    <Eligible>CHS and DIRECT</Eligible>
+    <Procedure>Knee Surgery</Procedure>
+    <WardLocation>PED</WardLocation>
+    <RoomBed>200</RoomBed>
+    <SurgeryProvider>DOCTOR,KATHRYN</SurgeryProvider>
+    <DateTimeToObservation>OCT 25, 2002@15:00</DateTimeToObservation>
+    <ReleaseDateTime>OCT 25, 2002@15:00</ReleaseDateTime>
+    <Diagnosis>Torn Ligament</Diagnosis>
+    <Admissions>
+      <Admission>
+        <Admitted>SEP 07, 2005@13:37</Admitted>
+      </Admission>
+      <Admission>
+        <AdmittedDate>JUN 02, 2005@13:45</AdmittedDate>
+        <AdmittedOperation>SURGERY</AdmittedOperation>
+        <AdmittedFunction>DIRECT (1)</AdmittedFunction>
+        <DischargedDate>JUN 02, 2005@23:30</DischargedDate>
+        <DischargedOperation>SURGERY</DischargedOperation>
+        <DischargedFunction>DIRECT (1)</DischargedFunction>
+        <DxUponAdmission>RETURNED AFTER AMA DISCHARGE</DxUponAdmission>
+        <CodedAdmDX></CodedAdmDX>
+        <DRG></DRG>
+        <Consults></Consults>
+        <Diagnoses>** No Diagnoses Entered for Visit! **</Diagnoses>
+        <Providers>** No Providers Entered for Visit! **</Providers>
+        <PCCDatas>
+          <PCCData>
+          </PCCData>
+        </PCCDatas>
+        <Problems>
+          <Problem>
+            <Id>THC1</Id>
+            <Location>UNSPECIFIED HO 569 ALB</Location>
+            <Dx>250.00</Dx>
+            <Status>ACTIVE</Status>
+            <Onset></Onset>
+            <ProviderNarrative>DM</ProviderNarrative>
+            <Notes>THC Note#1 PER TESTING TODAY</Notes>
+          </Problem>
+        </Problems>
+        <Visits>
+          <Visit>
+            <Date>FEB 19, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 3 MEDICATIONS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 17, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+        </Visits>
+      </Admission>
+      <Admission>
+        <Admitted>AUG 25, 2004@08:00</Admitted>
+      </Admission>
+    </Admissions>
+  </Patient>
+  <Patient>
+    <Name>PATIENT,ANNETTE FLORENE</Name>
+    <HRN>4294</HRN>
+    <DOB>08-29-1901</DOB>
+    <IsAdmitted>No</IsAdmitted>
+    <Sex>F</Sex>
+    <SSN>000287093</SSN>
+    <Status>ACTIVE INPATIENT-on WARD (SI and DNR)</Status>
+    <Admitted>SEP 26,2002@15:33:30</Admitted>
+    <Transferred></Transferred>
+    <Ward>GMS</Ward>
+    <RoomBedExt>219-1 /</RoomBedExt>
+    <Provider>PROVIDER,JADE</Provider>
+    <Specialty>INTERNAL MEDICINE</Specialty>
+    <Attending>PROVIDER,JADE</Attending>
+    <AdmittedBy>PROVIDER,JADE</AdmittedBy>
+    <DischargeType>REGULAR DISCHARGE</DischargeType>
+    <Discharged>SEP 27,2002@09:58:39</Discharged>
+    <Provider>PROVIDER,JADE</Provider>
+    <Speciality>FAMILY PRACTICE</Speciality>
+    <HRCN>00-42-98</HRCN>
+    <PatientPhone>(505)555-8031</PatientPhone>
+    <PatientAddress>UNSPECIFIED NM 88340</PatientAddress>
+    <Phone>464-4775</Phone>
+    <Eligible>CHS and DIRECT</Eligible>
+    <Procedure>Knee Surgery</Procedure>
+    <WardLocation>PED</WardLocation>
+    <RoomBed>200</RoomBed>
+    <SurgeryProvider>DOCTOR,KATHRYN</SurgeryProvider>
+    <DateTimeToObservation>OCT 25, 2002@15:00</DateTimeToObservation>
+    <ReleaseDateTime>OCT 25, 2002@15:00</ReleaseDateTime>
+    <Diagnosis>Torn Ligament</Diagnosis>
+    <Admissions>
+      <Admission>
+        <Admitted>SEP 07, 2005@13:37</Admitted>
+      </Admission>
+      <Admission>
+        <AdmittedDate>JUN 02, 2005@13:45</AdmittedDate>
+        <AdmittedOperation>SURGERY</AdmittedOperation>
+        <AdmittedFunction>DIRECT (1)</AdmittedFunction>
+        <DischargedDate>JUN 02, 2005@23:30</DischargedDate>
+        <DischargedOperation>SURGERY</DischargedOperation>
+        <DischargedFunction>DIRECT (1)</DischargedFunction>
+        <DxUponAdmission>RETURNED AFTER AMA DISCHARGE</DxUponAdmission>
+        <CodedAdmDX></CodedAdmDX>
+        <DRG></DRG>
+        <Consults></Consults>
+        <Diagnoses>** No Diagnoses Entered for Visit! **</Diagnoses>
+        <Providers>** No Providers Entered for Visit! **</Providers>
+        <PCCDatas>
+          <PCCData>
+          </PCCData>
+        </PCCDatas>
+        <Problems>
+          <Problem>
+            <Id>THC1</Id>
+            <Location>UNSPECIFIED HO 569 ALB</Location>
+            <Dx>250.00</Dx>
+            <Status>ACTIVE</Status>
+            <Onset></Onset>
+            <ProviderNarrative>DM</ProviderNarrative>
+            <Notes>THC Note#1 PER TESTING TODAY</Notes>
+          </Problem>
+        </Problems>
+        <Visits>
+          <Visit>
+            <Date>FEB 19, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 3 MEDICATIONS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 17, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+        </Visits>
+      </Admission>
+      <Admission>
+        <Admitted>AUG 25, 2004@08:00</Admitted>
+      </Admission>
+    </Admissions>
+  </Patient>
+  <Patient>
+    <Name>PATIENT,AVALINE M.</Name>
+    <HRN>5640</HRN>
+    <DOB>07-04-1901</DOB>
+    <IsAdmitted>No</IsAdmitted>
+    <Sex>F</Sex>
+    <SSN>000660902</SSN>
+    <Status>ACTIVE INPATIENT-on WARD (SI and DNR)</Status>
+    <Admitted>SEP 26,2002@15:33:30</Admitted>
+    <Transferred></Transferred>
+    <Ward>GMS</Ward>
+    <RoomBedExt>219-1 /</RoomBedExt>
+    <Provider>PROVIDER,JADE</Provider>
+    <Specialty>INTERNAL MEDICINE</Specialty>
+    <Attending>PROVIDER,JADE</Attending>
+    <AdmittedBy>PROVIDER,JADE</AdmittedBy>
+    <DischargeType>REGULAR DISCHARGE</DischargeType>
+    <Discharged>SEP 27,2002@09:58:39</Discharged>
+    <Provider>PROVIDER,JADE</Provider>
+    <Speciality>FAMILY PRACTICE</Speciality>
+    <HRCN>00-42-98</HRCN>
+    <PatientPhone>(505)555-8031</PatientPhone>
+    <PatientAddress>UNSPECIFIED NM 88340</PatientAddress>
+    <Phone>464-4775</Phone>
+    <Eligible>CHS and DIRECT</Eligible>
+    <Procedure>Knee Surgery</Procedure>
+    <WardLocation>PED</WardLocation>
+    <RoomBed>200</RoomBed>
+    <SurgeryProvider>DOCTOR,KATHRYN</SurgeryProvider>
+    <DateTimeToObservation>OCT 25, 2002@15:00</DateTimeToObservation>
+    <ReleaseDateTime>OCT 25, 2002@15:00</ReleaseDateTime>
+    <Diagnosis>Torn Ligament</Diagnosis>
+    <Admissions>
+      <Admission>
+        <Admitted>SEP 07, 2005@13:37</Admitted>
+      </Admission>
+      <Admission>
+        <AdmittedDate>JUN 02, 2005@13:45</AdmittedDate>
+        <AdmittedOperation>SURGERY</AdmittedOperation>
+        <AdmittedFunction>DIRECT (1)</AdmittedFunction>
+        <DischargedDate>JUN 02, 2005@23:30</DischargedDate>
+        <DischargedOperation>SURGERY</DischargedOperation>
+        <DischargedFunction>DIRECT (1)</DischargedFunction>
+        <DxUponAdmission>RETURNED AFTER AMA DISCHARGE</DxUponAdmission>
+        <CodedAdmDX></CodedAdmDX>
+        <DRG></DRG>
+        <Consults></Consults>
+        <Diagnoses>** No Diagnoses Entered for Visit! **</Diagnoses>
+        <Providers>** No Providers Entered for Visit! **</Providers>
+        <PCCDatas>
+          <PCCData>
+          </PCCData>
+        </PCCDatas>
+        <Problems>
+          <Problem>
+            <Id>THC1</Id>
+            <Location>UNSPECIFIED HO 569 ALB</Location>
+            <Dx>250.00</Dx>
+            <Status>ACTIVE</Status>
+            <Onset></Onset>
+            <ProviderNarrative>DM</ProviderNarrative>
+            <Notes>THC Note#1 PER TESTING TODAY</Notes>
+          </Problem>
+        </Problems>
+        <Visits>
+          <Visit>
+            <Date>FEB 19, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 3 MEDICATIONS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 17, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+        </Visits>
+      </Admission>
+      <Admission>
+        <Admitted>AUG 25, 2004@08:00</Admitted>
+      </Admission>
+    </Admissions>
+  </Patient>
+  <Patient>
+    <Name>PATIENT,BEN</Name>
+    <HRN>6133</HRN>
+    <DOB>10-31-1973</DOB>
+    <IsAdmitted>Yes</IsAdmitted>
+    <Sex>M</Sex>
+    <SSN>000444448</SSN>
+    <Status>ACTIVE INPATIENT-on WARD (SI and DNR)</Status>
+    <Admitted>SEP 26,2002@15:33:30</Admitted>
+    <Transferred></Transferred>
+    <Ward>GMS</Ward>
+    <RoomBedExt>219-1 /</RoomBedExt>
+    <Provider>PROVIDER,JADE</Provider>
+    <Specialty>INTERNAL MEDICINE</Specialty>
+    <Attending>PROVIDER,JADE</Attending>
+    <AdmittedBy>PROVIDER,JADE</AdmittedBy>
+    <DischargeType>REGULAR DISCHARGE</DischargeType>
+    <Discharged>SEP 27,2002@09:58:39</Discharged>
+    <Provider>PROVIDER,JADE</Provider>
+    <Speciality>FAMILY PRACTICE</Speciality>
+    <HRCN>00-42-98</HRCN>
+    <PatientPhone>(505)555-8031</PatientPhone>
+    <PatientAddress>UNSPECIFIED NM 88340</PatientAddress>
+    <Phone>464-4775</Phone>
+    <Eligible>CHS and DIRECT</Eligible>
+    <Procedure>Knee Surgery</Procedure>
+    <WardLocation>PED</WardLocation>
+    <RoomBed>200</RoomBed>
+    <SurgeryProvider>DOCTOR,KATHRYN</SurgeryProvider>
+    <DateTimeToObservation>OCT 25, 2002@15:00</DateTimeToObservation>
+    <ReleaseDateTime>OCT 25, 2002@15:00</ReleaseDateTime>
+    <Diagnosis>Torn Ligament</Diagnosis>
+    <Admissions>
+      <Admission>
+        <Admitted>SEP 07, 2005@13:37</Admitted>
+      </Admission>
+      <Admission>
+        <AdmittedDate>JUN 02, 2005@13:45</AdmittedDate>
+        <AdmittedOperation>SURGERY</AdmittedOperation>
+        <AdmittedFunction>DIRECT (1)</AdmittedFunction>
+        <DischargedDate>JUN 02, 2005@23:30</DischargedDate>
+        <DischargedOperation>SURGERY</DischargedOperation>
+        <DischargedFunction>DIRECT (1)</DischargedFunction>
+        <DxUponAdmission>RETURNED AFTER AMA DISCHARGE</DxUponAdmission>
+        <CodedAdmDX></CodedAdmDX>
+        <DRG></DRG>
+        <Consults></Consults>
+        <Diagnoses>** No Diagnoses Entered for Visit! **</Diagnoses>
+        <Providers>** No Providers Entered for Visit! **</Providers>
+        <PCCDatas>
+          <PCCData>
+          </PCCData>
+        </PCCDatas>
+        <Problems>
+          <Problem>
+            <Id>THC1</Id>
+            <Location>UNSPECIFIED HO 569 ALB</Location>
+            <Dx>250.00</Dx>
+            <Status>ACTIVE</Status>
+            <Onset></Onset>
+            <ProviderNarrative>DM</ProviderNarrative>
+            <Notes>THC Note#1 PER TESTING TODAY</Notes>
+          </Problem>
+        </Problems>
+        <Visits>
+          <Visit>
+            <Date>FEB 19, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 3 MEDICATIONS</AssociatedData>
+          </Visit>
+          <Visit>
+            <Date>FEB 17, 2005@12:00</Date>
+            <Category>I</Category>
+            <AssociatedData>Has 34 LABS</AssociatedData>
+          </Visit>
+        </Visits>
+      </Admission>
+      <Admission>
+        <Admitted>AUG 25, 2004@08:00</Admitted>
+      </Admission>
+    </Admissions>
+  </Patient>
+</Patients>

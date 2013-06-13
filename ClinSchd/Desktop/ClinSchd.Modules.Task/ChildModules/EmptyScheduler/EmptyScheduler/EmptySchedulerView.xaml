@@ -1,0 +1,28 @@
+﻿<presentation:RadPane x:Name="paneTaskEmptyScheduler"  Title="[Empty]"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:infModels="clr-namespace:ClinSchd.Infrastructure.Models;assembly=ClinSchd.Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:presentation="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:input="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+	xmlns:controls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+	xmlns:cal="clr-namespace:Microsoft.Practices.Composite.Presentation.Commands;assembly=Microsoft.Practices.Composite.Presentation"
+    xmlns:adtcontrols="clr-namespace:ClinSchd.Infrastructure.Controls;assembly=ClinSchd.Infrastructure"
+    x:Class="ClinSchd.Modules.Task.EmptyScheduler.EmptySchedulerView"
+    xmlns:scheduler="clr-namespace:Telerik.Windows.Controls.Scheduler;assembly=Telerik.Windows.Controls.Scheduler"
+    xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+    xmlns:telerikScheduler="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Scheduler"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+    CanUserClose="True"
+    Unloaded="paneTaskEmptyScheduler_Unloaded"
+    CanDockInDocumentHost="False"
+    CanUserPin="True"
+    CanFloat="False"
+    IsSelected="{Binding IsSelectedTab, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+    >
+	<presentation:RadPane.Content>
+        <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Gray">
+            <Label Foreground="White" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding Message}"></Label>
+        </DockPanel>
+    </presentation:RadPane.Content>
+</presentation:RadPane>
